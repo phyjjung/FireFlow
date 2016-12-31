@@ -1,0 +1,22 @@
+<ion-view view-title="Because You Follow">
+  <ion-nav-title>
+    <div class="l-h-1x">
+      Because You Follow
+      <br>
+      <span class="text-muted text-xs">Elon Musk and 4 others</span>
+    </div>
+  </ion-nav-title>
+
+  <ion-nav-buttons side="secondary">
+    <button class="button button-clear button-positive button-icon ion-ios-search-strong m-r" modal="'components/home/views/search_people_connect.modal.html'">
+    </button>
+    <new-tweet></new-tweet>
+  </ion-nav-buttons>
+  <ion-content class="stable-bg" ion-sticky ion-sticky-class="dark">
+    <ion-refresher on-refresh="getData()" pulling-icon="ion-chevron-up"></ion-refresher>
+    
+    <div class="list" ng-repeat="i in [0, 1]">
+      <item-person data="p" ng-repeat="p in posts track by $index">
+    </div>
+  </ion-content>
+</ion-view>

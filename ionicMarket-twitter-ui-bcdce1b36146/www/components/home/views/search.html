@@ -1,0 +1,43 @@
+<ion-view view-title="Search" hide-nav-bar="true">
+  <ion-header-bar class="has-input item-input-inset">
+    <button class="button button-clear button-positive button-icon icon ion-ios-arrow-back m-r" force-back>
+    </button>
+
+    <label class="item-input-wrapper">
+      <input type="search" ng-model="query" placeholder="Search Twitter" ng-focus="showRecommendation = true" ng-blur="showRecommendation = false">
+    </label>
+    
+    <new-tweet></new-tweet>
+  </ion-header-bar>
+
+  <ion-content class="stable-bg" ion-sticky ion-sticky-class="dark">
+    <div class="list" ng-show="!showRecommendation">
+      <div class="item item-trending" ng-repeat="item in results track by $index" ui-sref="tab.searchResult({q: item.title})">
+        <div class="pull-left m-r text-muted">{{$index + 1}}</div>
+        <div class="clear">
+          <div class="font-bold">{{item.title}}</div>
+          <p>{{item.count | number}} Tweets</p>
+        </div>
+      </div>
+    </div>
+
+    <div ng-show="showRecommendation">
+      <div class="list" >
+        <div class="item item-icon-left" ng-repeat="i in [0,1,2]">
+          <i class="icon ion-ios-search-strong text-muted"></i>
+          {{query || '&nbsp;'}} {{$index + 1}}
+        </div>
+      </div>
+
+      <div class="list">
+        <div class="item item-avatar" ng-repeat="i in [0,1,2,3,4,5,6,7,8,9]">
+          <img src="img/ben.png" random-avatar>
+          <div>
+            <div class="font-bold">Hieu Pham</div>
+            <div class="text-muted">@mrhieu</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

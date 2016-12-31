@@ -1,0 +1,35 @@
+<ion-modal-view>
+  <ion-header-bar class="bar bar-header bar-no-border">
+    <div class="buttons">
+      <button class="button button-clear button-positive" ng-click="closeModal()">
+        Cancel
+      </button>
+    </div>
+    <h1 class="title">Refine results</h1>
+    <div class="buttons">
+      <button class="button button-clear button-positive" ng-click="closeModal()">
+        <span class="font-bold">Apply</span>
+      </button>
+    </div>
+  </ion-header-bar>
+  <ion-content class="stable-bg">
+    <ion-list class="m-b-sm clear" ng-init="choice='A'">
+      <ion-radio icon="ion-checkmark-circled balanced" name="choice" ng-model="choice" ng-value="'A'">Everything</ion-radio>
+      <ion-radio icon="ion-checkmark-circled balanced" name="choice" ng-model="choice" ng-value="'B'">Photos</ion-radio>
+      <ion-radio icon="ion-checkmark-circled balanced" name="choice" ng-model="choice" ng-value="'C'">Videos</ion-radio>
+      <ion-radio icon="ion-checkmark-circled balanced" name="choice" ng-model="choice" ng-value="'D'">Periscope</ion-radio>
+      <ion-radio icon="ion-checkmark-circled balanced" name="choice" ng-model="choice" ng-value="'E'">News</ion-radio>
+      <ion-radio icon="ion-checkmark-circled balanced" name="choice" ng-model="choice" ng-value="'F'">People</ion-radio>
+    </ion-list>
+
+    <ion-list class="m-b-sm clear" ng-init="choice2='G'">
+      <ion-radio icon="ion-checkmark-circled balanced" name="choice2" ng-model="choice2" ng-value="'G'">All people</ion-radio>
+      <ion-radio icon="ion-checkmark-circled balanced" name="choice2" ng-model="choice2" ng-value="'H'">People you follow</ion-radio>
+    </ion-list>
+
+    <ion-list ng-init="choice3='I'">
+      <ion-radio icon="ion-checkmark-circled balanced" name="choice3" ng-model="choice3" ng-value="'I'">Everywhere</ion-radio>
+      <ion-radio icon="ion-checkmark-circled balanced" name="choice3" ng-model="choice3" ng-value="'K'">Near you</ion-radio>
+    </ion-list>
+  </ion-content>
+</ion-modal-view>

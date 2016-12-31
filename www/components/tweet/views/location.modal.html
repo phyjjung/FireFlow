@@ -1,0 +1,46 @@
+<ion-modal-view>
+  <ion-header-bar class="bar bar-header bar-no-border">
+    <div class="buttons">
+      <button class="button button-clear button-positive" ng-click="close()">
+        Remove
+      </button>
+    </div>
+    <h1 class="title">Tag location</h1>
+    <div class="buttons">
+      <button class="button button-clear button-positive" ng-click="close()">
+        <span class="font-bold">Done</span>
+      </button>
+    </div>
+  </ion-header-bar>
+  
+  <div class="bar bar-subheader item-input-inset">
+    <label class="item-input-wrapper">
+      <i class="icon ion-ios-search placeholder-icon"></i>
+      <input type="search" placeholder="Search locations">
+    </label>
+  </div>
+    
+  <ion-content class="stable-bg has-subheader">
+    <ion-list class="m-b-sm clear" ng-init="choice='A'">
+      <ion-radio icon="ion-checkmark-circled balanced" name="choice" ng-model="choice" ng-value="'A'">Hanoi, Vietnam</ion-radio>
+      <ion-radio icon="ion-checkmark-circled balanced" name="choice" ng-model="choice" ng-value="'B'">Vietnam</ion-radio>
+      <ion-radio icon="ion-checkmark-circled balanced" name="choice" ng-model="choice" ng-value="'C'">Hai Phong</ion-radio>
+      <ion-radio icon="ion-checkmark-circled balanced" name="choice" ng-model="choice" ng-value="'D'">Hung Yen</ion-radio>
+      <ion-radio icon="ion-checkmark-circled balanced" name="choice" ng-model="choice" ng-value="'E'">Vinh Phuc</ion-radio>
+      <ion-radio icon="ion-checkmark-circled balanced" name="choice" ng-model="choice" ng-value="'F'">Ho Chi Minh City</ion-radio>
+
+      <li class="item item-toggle">
+        <div>
+          Share precise location
+          <div class="text-muted text-sm">(21.033..., 105.85...)</div>
+        </div>
+        <label class="toggle toggle-balanced">
+          <input type="checkbox">
+          <div class="track">
+            <div class="handle"></div>
+          </div>
+        </label>
+      </li>
+    </ion-list>
+  </ion-content>
+</ion-modal-view>

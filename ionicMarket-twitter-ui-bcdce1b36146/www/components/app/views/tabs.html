@@ -1,0 +1,37 @@
+<!--
+Create tabs with an icon and label, using the tabs-positive style.
+Each tab's child <ion-nav-view> directive will have its own
+navigation history that also transitions its views in and out.
+-->
+
+<!--
+  The nav bar that will be updated as we navigate between views.
+-->
+<ion-nav-bar class="no-border1">
+  <ion-nav-back-button class="button-positive">
+  </ion-nav-back-button>
+</ion-nav-bar>
+<!--
+  The views will be rendered in the <ion-nav-view> directive below
+  Templates are in the /templates folder (but you could also
+  have templates inline in this html file if you'd like).
+-->
+
+<ion-tabs class="tabs-icon-top tabs-color-active-positive bar-no-border">
+  <ion-tab title="Home" icon-off="ion-ios-home-outline" icon-on="ion-home" href="#/tab/home">
+    <ion-nav-view name="tab-home"></ion-nav-view>
+  </ion-tab>
+
+  <ion-tab title="Notifications" icon-off="ion-android-notifications-none" icon-on="ion-android-notifications" href="#/tab/notifications">
+    <ion-nav-view name="tab-notifications"></ion-nav-view>
+  </ion-tab>
+
+  <ion-tab title="Messages" icon-off="ion-ios-chatboxes-outline" icon-on="ion-ios-chatboxes" href="#/tab/chat">
+    <ion-nav-view name="tab-chat"></ion-nav-view>
+  </ion-tab>
+
+  <ion-tab title="Me" icon-off="ion-ios-person-outline" icon-on="ion-person" href="#/tab/me">
+    <ion-nav-view name="tab-me"></ion-nav-view>
+  </ion-tab>
+
+</ion-tabs>

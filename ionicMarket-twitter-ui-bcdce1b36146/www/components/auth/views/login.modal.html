@@ -1,0 +1,33 @@
+<ion-modal-view>
+  <ion-header-bar class="bar bar-header bar-no-border">
+    <div class="buttons">
+      <button class="button button-clear button-positive" ng-click="closeLogin()">
+        Cancel
+      </button>
+    </div>
+    <h1 class="title positive"><i class="icon ion-social-twitter text-xl"></i></h1>
+    <div class="buttons">
+      <button class="button button-clear button-positive">
+        <i class="icon ion-android-more-horizontal"></i>
+      </button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    <div class="wrapper-sm m-t-lg m-b text-xl font-thin">
+      Log in to Twitter
+    </div>
+    <div class="list">
+      <label class="item item-input b-b-only m-n">
+        <input type="text" class="positive" placeholder="Phone, email or username">
+      </label>
+      <label class="item item-input b-b-only m-n">
+        <input type="password" placeholder="Password">
+      </label>
+    </div>
+  </ion-content>
+
+  <ion-footer-bar keyboard-attach horizontal layout justified>
+    <button class="button button-clear button-positive">Forgot password?</button>
+    <button class="button button-positive button-small" ng-click="login()">Log in</button>
+  </ion-footer-bar>
+</ion-modal-view>

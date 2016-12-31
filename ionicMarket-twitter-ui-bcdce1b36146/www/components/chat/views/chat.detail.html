@@ -1,0 +1,45 @@
+<ion-view title="Tinder" class="has-giphy" ng-class="{'show-gif': isGifShown}">
+  <ion-nav-title>
+    <div class="l-h-1x">
+      John Appleseed
+      <br>
+      <span class="text-muted text-xs">@johnapp</span>
+    </div>
+  </ion-nav-title>
+
+  <ion-nav-buttons side="secondary">
+    <button class="button button-clear button-positive button-icon ion-more" action-sheet="[{text: 'Add people'}, {text: 'Turn off notifications'}, {text: 'Flag'}, {text: 'Leave conversation'}]"></button>
+  </ion-nav-buttons>
+
+  <ion-content delegate-handle="userMessageScroll">
+    <!-- Chat bubbles -->
+    <div class="list chat-bubble">
+      <div class="item item-avatar b-none" ng-class="item.isMe?'me':'friend'" href="#" ng-repeat="item in messages">
+        <img ng-src="{{item.avatar}}" ng-if="!item.isMe">
+        <div class="bubble" ng-class="{'bubble-image': item.type == 'image'}">
+          <i class="icon-tail"></i>
+          <span class="content" ng-if="item.type !== 'image'" ng-bind-html="item.body | nl2br"></span>
+          <img ng-src="{{item.body}}" alt="" ng-if="item.type == 'image'">
+          <i class="icon ion-ios-heart-outline heart text-muted text-2x" ng-if="!item.isMe && item.type == 'image'"></i>
+        </div>
+        <span class="message-status">{{item.timestamp}}</span>
+      </div>
+    </div>
+  </ion-content>
+
+  <ion-footer-bar class="bar-light item-input-inset" keyboard-attach elastic>
+    <div class="footer-btn-wrap">
+      <button type="button" class="button button-dark footer-btn" ng-click="openGiphy()">
+        <span class="font-bold text-xs">GIF</span>
+      </button>
+    </div>
+    <label class="item-input-wrapper no-bg">
+      <textarea rows="1" msd-elastic placeholder="Message" id="type-area" ng-model="message"></textarea>
+    </label>
+    <div class="footer-btn-wrap">
+      <button type=submit class="button button-clear footer-btn" ng-click="sendText()" ng-disabled="message.length == 0">
+        Send
+      </button>
+    </div>
+  </ion-footer-bar>
+</ion-view>

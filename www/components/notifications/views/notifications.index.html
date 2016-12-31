@@ -1,0 +1,30 @@
+<ion-view view-title="Notifications">
+  <ion-nav-buttons side="primary">
+    <button class="button button-clear button-positive button-icon ion-gear-a" ui-sref="tab.connect">
+    </button>
+  </ion-nav-buttons>
+  <ion-nav-buttons side="secondary">
+    <button class="button button-clear button-positive button-icon ion-ios-search-strong m-r" ui-sref="tab.search">
+    </button>
+    <new-tweet></new-tweet>
+  </ion-nav-buttons>
+
+  <div class="bar bar-subheader" ng-init="activeBar = 0">
+    <div class="button-bar">
+      <a class="button button-positive" ng-class="{'button-outline': activeBar !== 0}" ng-click="activeBar = 0">All</a>
+      <a class="button button-positive" ng-class="{'button-outline': activeBar !== 1}" ng-click="activeBar = 1">Mentions</a>
+    </div>
+  </div>
+
+  <ion-content class="stable-bg has-subheader">
+    <div ng-switch="activeBar">
+      <div ng-switch-default class="list">
+        <item-notification ng-repeat="i in [0,1,2,3,4,5,6,7,8,9]"></item-notification>
+      </div>
+
+      <div ng-switch-when="1" class="list">
+        <item-tweet data="p" type="mention" ng-repeat="p in posts track by $index"></item-tweet>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

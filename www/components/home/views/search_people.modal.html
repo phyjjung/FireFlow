@@ -1,0 +1,35 @@
+<ion-modal-view>
+  <ion-header-bar class="bar bar-header bar-no-border">
+    <h1 class="title positive"></h1>
+    <div class="buttons">
+      <button class="button button-clear button-positive" ng-click="closeModal()">
+        <i class="icon ion-android-close"></i>
+      </button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    <div class="wrapper text-center">
+      <h3 class="positive font-thin">Talk privately</h3>
+      <p class="text-muted">Send this Tweet to get the conversation started.</p>
+    </div>
+
+    <div class="list m-n">
+      <label class="item item-input stable-bg">
+        <i class="icon ion-search placeholder-icon"></i>
+        <input type="text" placeholder="Search for people and groups">
+      </label>
+    </div>
+
+    <div class="list">
+      <div class="item item-avatar" ng-repeat="i in [0,1,2,3,4,5,6,7,8,9]">
+        <img src="img/ben.png" random-avatar>
+        <div>
+          <div class="font-bold">Hieu Pham</div>
+          <div class="text-muted">@mrhieu</div>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+
+  
+</ion-modal-view>

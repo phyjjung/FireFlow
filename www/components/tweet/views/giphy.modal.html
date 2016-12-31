@@ -1,0 +1,26 @@
+<ion-modal-view>
+  <ion-header-bar class="bar bar-header bar-no-border item-input-inset">
+    <label class="item-input-wrapper">
+      <i class="icon ion-ios-search placeholder-icon"></i>
+      <input type="search" placeholder="Search for GIFs" ng-model="state.gifsearch" ng-change="change()" ng-model-options="{ debounce: 500 }">
+    </label>
+
+    <button class="button button-clear button-positive" ng-click="close()">
+      <span class="font-bold">Cancel</span>
+    </button>
+  </ion-header-bar>
+
+  <ion-content class="stable-bg">
+    <hj-gridify ng-if="gifs.length"
+      hj-gridify-options="{
+        collection: gifs,
+        perRow: 3,
+        averageRatio: 1.5,
+        gutter: 2,
+      }"
+      hj-gridify-item-as="tile"
+    >
+      <div ng-style="{'background-image': 'url(\'' + tile.images.fixed_height_small.url + '\')'}" style="height: 100%; width: 100%; background-size: cover; background-origin: center center" ng-click="select(tile.images.fixed_height.url)"></div>
+    </hj-gridify>
+  </ion-content>
+</ion-modal-view>

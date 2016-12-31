@@ -1,0 +1,27 @@
+<ion-view view-title="Flow">
+
+  <ion-nav-buttons side="secondary">
+    <button class="button button-clear button-positive button-icon ion-ios-search-strong m-r" ui-sref="tab.search">
+    </button>
+    <new-tweet></new-tweet>
+  </ion-nav-buttons>
+
+  <div class="bar bar-subheader" ng-init="activeBar = 0">
+    <div class="button-bar">
+      <a class="button button-assertive" ng-class="{'button-outline': activeBar !== 0}" ng-click="activeBar = 0">All</a>
+      <a class="button button-assertive" ng-class="{'button-outline': activeBar !== 1}" ng-click="activeBar = 1">HOT</a>
+    </div>
+  </div>
+
+  <ion-content class="stable-bg has-subheader">
+    <div ng-switch="activeBar">
+      <div ng-switch-default class="list">
+        <item-tweet data="p" ng-repeat="p in posts track by $index"></item-tweet>
+      </div>
+
+      <div ng-switch-when="1" class="list">
+        <item-tweet data="p" type="mention" ng-repeat="p in posts track by $index"></item-tweet>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

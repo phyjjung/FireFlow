@@ -1,0 +1,28 @@
+<ion-view view-title="Search" hide-nav-bar="true">
+  <ion-header-bar class="has-input item-input-inset">
+    <button class="button button-clear button-positive button-icon icon ion-ios-arrow-back m-r" force-back>
+    </button>
+
+    <div class="item-input-wrapper">
+      <input type="search" ng-model="currentQuery" placeholder="Search Twitter">
+      <i class="icon ion-ios-settings-strong placeholder-icon" modal="'components/home/views/search_refine.modal.html'"></i>
+    </div>
+
+    <new-tweet></new-tweet>
+  </ion-header-bar>
+
+  <div class="bar bar-subheader" ng-init="activeBar = 0">
+    <div class="button-bar">
+      <a class="button button-positive" ng-class="{'button-outline': activeBar !== 0}" ng-click="activeBar = 0">Top Tweets</a>
+      <a class="button button-positive" ng-class="{'button-outline': activeBar !== 1}" ng-click="activeBar = 1">All Tweets</a>
+    </div>
+  </div>
+
+  <ion-content class="stable-bg has-subheader" ion-sticky ion-sticky-class="dark">
+    <ion-refresher on-refresh="getData()" pulling-icon="ion-chevron-up"></ion-refresher>
+    
+    <div class="list" ng-repeat="i in [0, 1]">
+      <item-tweet data="p" ng-repeat="p in posts track by $index"></item-tweet>
+    </div>
+  </ion-content>
+</ion-view>

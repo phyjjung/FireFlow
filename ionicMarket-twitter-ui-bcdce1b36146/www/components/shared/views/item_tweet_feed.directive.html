@@ -1,0 +1,74 @@
+<div class="item item-avatar item-tw item-text-wrap" ng-class="{'item-tw-re': data.isReference}">
+  <img ng-src="{{data.user.profile_image_url}}" alt="">
+
+  <!-- Referencer -->
+  <div class="referencer text-sm text-muted">
+    <i class="icon ion-loop m-r-xs"></i> Elon Musk retweeted
+  </div>
+
+  <div>
+    <div class="pos-rlt">
+      <span class="font-bold">{{data.user.name}}</span> <span class="text-sm text-muted">@{{data.user.screen_name}} · <time-ago value="data.created_at"></time-ago></span>
+
+      <i class="icon ion-chevron-down right-top text-muted text-sm" action-sheet="[{text: 'Unfollow'}, {text: 'Mute'}, {text: 'Block'}, {text: 'Report'}, {text: 'Share via...'}]"></i>
+    </div>
+
+    <div ui-sref="tab.tweet({id: 12345})"><span ng-bind-html="data.text | post"></span></div>
+
+    <!-- Photo -->
+    <div class="b b-light r-2x m-t-xs" ng-if="data.type == 1">
+      <div class="media r-2x" ng-style="{'background-image': 'url(\'' + data.entities.media[0].url + '\')'}"></div>
+    </div>
+    
+    <!-- Link -->
+    <div class="b b-light r-2x m-t-xs" ng-if="data.type == 2">
+      <div class="media r-2x" ng-style="{'background-image': 'url(\'' + data.entities.media[0].url + '\')'}"></div>
+      <div class="wrapper-sm clearfix">
+        <div class="pull-left">
+          <div>Site title</div>
+          <div class="text-sm text-muted">linkedin.com</div>
+        </div>
+
+        <button class="button button-outline button-positive button-small padder pull-right m-t-xs">Read more</button>
+      </div>
+    </div>
+
+    <!-- Repos -->
+    <div class="b b-light r-2x m-t-xs item-share" ng-if="data.type == 3">
+      <div class="media-share b-r b-light" ng-style="{'background-image': 'url(\'' + data.entities.media[0].url + '\')'}"></div>
+      <div class="share-title wrapper-sm">
+        mrhieu/ionic-twitter
+        <div class="text-muted text-sm">github.com</div>
+      </div>
+    </div>
+
+    <!-- Article -->
+    <div class="b b-light r-2x m-t-xs" ng-if="data.type == 4">
+      <div class="media r-2x" ng-style="{'background-image': 'url(\'' + data.entities.media[0].url + '\')'}"></div>
+      <div class="wrapper-sm clearfix">
+        <div class="pull-left">
+          <div>Three idiots founded a company that sold for $1 mil...</div>
+          <div class="text-sm text-muted">techcrunch.com</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="item-actions row text-muted wrapper-sm">
+      <div class="col no-padder">
+        <button class="button button-icon text-muted ion-reply"></button>
+      </div>
+      <div class="col no-padder">
+        <button class="button button-icon text-muted ion-loop" action-sheet="[{text: 'Retweet'}, {text: 'Quote Tweet'}]"><span class="text-muted text-sm m-l-xs">12</span></button>
+      </div>
+      <div class="col no-padder">
+        <button class="button button-icon assertive ion-ios-heart"><span class="text-muted text-sm m-l-xs">34</span></button>
+      </div>
+      <div class="col no-padder">
+        <button class="button button-icon text-muted ion-chatbubble" modal="'components/home/views/search_people.modal.html'"></button>
+      </div>
+    </div>
+    <div class="text-muted text-sm m-b-sm" ng-if="data.type == 2">
+      <i class="icon ion-ribbon-b m-r-xs"></i>Promoted
+    </div>
+  </div>
+</div>

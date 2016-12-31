@@ -1,0 +1,15 @@
+{
+  "name": "twitter-ui",
+  "app_id": "e1a7cda9",
+  "gulpStartupTasks": [
+    "sass",
+    "inject",
+    "watch"
+  ],
+  "watchPatterns": [
+    "www/**/*",
+    "!www/lib/**/*",
+    "scss/*.scss",
+    "scss/*.sass"
+  ]
+}

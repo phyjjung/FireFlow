@@ -1,0 +1,59 @@
+<ion-view view-title="Connect">
+  <ion-nav-buttons side="secondary">
+    <button class="button button-clear button-positive button-icon ion-ios-search-strong m-r" modal="'components/home/views/search_people_connect.modal.html'">
+    </button>
+    <new-tweet></new-tweet>
+  </ion-nav-buttons>
+  <ion-content class="stable-bg" ion-sticky ion-sticky-class="dark">
+    <ion-refresher on-refresh="getData()" pulling-icon="ion-chevron-up"></ion-refresher>
+    
+    <div class="list">
+      <div class="wrapper-sm light-bg">
+        <div>
+          PEOPLE YOU MAY KNOW
+          <span class="pull-right positive" ui-sref="tab.connect_more">More</span>
+        </div>
+
+        <ion-slide-box>
+          <ion-slide ng-repeat="i in [0,1,2,3,4,5,6]">
+            <div class="r-2x b m-sm m-b-md">
+              <div class="profile-cover r-2x" ng-style="{'background-image': 'url(\'' + 'https://o.twimg.com/2/proxy.jpg?t=HBhUaHR0cHM6Ly9jbXMtYXNzZXRzLnR1dHNwbHVzLmNvbS91cGxvYWRzL3VzZXJzLzMwL3Bvc3RzLzI2OTc3L3ByZXZpZXdfaW1hZ2UvcHJlLTEucG5nFKAGFKIDHBSEBhSUAwAAFgASAA&s=9dt_Z05iSoJmuasv8rz097REGcvjrZxVIgAd10SYmWQ' + '\')'}"></div>
+
+              <div class="clearfix wrapper-sm">
+                <img src="" alt="" class="thumb-md r-3x b b-white b-4x pos-abt profile-img-on-cover" random-avatar>
+
+                <div class="clearfix">
+                  <button class="button button-outline button-positive button-small padder pull-right"><i class="icon ion-person-add"></i></button>
+                </div>
+
+                <div>
+                  <div class="font-bold">Hieu Pham{{vm.data.user.name}} <i class="icon ion-checkmark-circled calm"></i></div>
+                  <div class="text-sm text-muted">@mrhieu{{vm.data.user.screen_name}}</div>
+                </div>
+
+                <div class="m-b">User experience consultant. Information architect. Music lover. Rocket scientist. Not me LoL.</div>
+              
+                <div class="text-muted">Followed by Justin Bieber</div>
+              </div>
+            </div>
+          </ion-slide>
+        </ion-slide-box>
+      </div>
+    </div>
+
+    <div class="list" ng-repeat="i in [0, 1]">
+      <div class="wrapper-sm light-bg">
+        <div>
+          BECAUSE YOU FOLLOW
+          <span class="pull-right positive" ui-sref="tab.connect_more">More</span>
+        </div>
+
+        <div>
+          <img src="img/ben.png" random-avatar class="thumb-sm r-2x m-r-xs" ng-repeat="i in [0,1,2,3]">
+        </div>
+        <div class="text-muted">Elon Musk and Jack Dorsey</div>
+      </div>
+      <item-person data="p" ng-repeat="p in posts track by $index">
+    </div>
+  </ion-content>
+</ion-view>

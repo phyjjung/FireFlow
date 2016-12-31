@@ -1,0 +1,28 @@
+<ion-view view-title="Home">
+  <ion-nav-title>
+    <h1 class="title positive"><i class="icon ion-ios-star-half text-xl"></i></h1>
+  </ion-nav-title>
+  <ion-nav-buttons side="secondary">
+    <button class="button button-clear button-positive button-icon ion-person-add" ui-sref="tab.connect">
+    </button>
+  </ion-nav-buttons>
+
+  <ion-content class="stable-bg" ion-sticky ion-sticky-class="dark">
+    <div class="list">
+      <div class="item item-trending" ng-repeat="item in results track by $index" ui-sref="tab.clan">
+        <div class="pull-left m-r text-muted">{{$index + 1}}</div>
+
+        <div class="clear">
+          <div class="font-bold">
+           <i class="icon ion-ios-star-half m-b">{{item.Clantitle}}</i>
+          </div>
+          <div class="m-b">20자로.. </div>
+          <p><span class="font-bold m-r-xs">{{item.ClanFollowerCount | number}}</span> FOLLOWERS</p>
+        </div>
+      </div>
+    </div>
+
+  </ion-content>
+
+
+</ion-view>

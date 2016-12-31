@@ -1,0 +1,153 @@
+$mutedColor: #8F9DAA
+
+body
+  color: #1F2326
+  font-family: "-apple-system", "Helvetica Neue", "Roboto", "Segoe UI", sans-serif
+
+a
+  text-decoration: none
+
+.text-muted
+  color: $mutedColor
+.bg-muted
+  background-color: $mutedColor
+
+.bg-gradient
+  background-image: -ms-linear-gradient(top left, #59C772 0%, #2982EE 100%)
+  background-image: -moz-linear-gradient(top left, #59C772 0%, #2982EE 100%)
+  background-image: -o-linear-gradient(top left, #59C772 0%, #2982EE 100%)
+  background-image: -webkit-gradient(linear, left top, right bottom, color-stop(0, #59C772), color-stop(100, #2982EE))
+  background-image: -webkit-linear-gradient(top left, #59C772 0%, #2982EE 100%)
+  background-image: linear-gradient(to bottom right, #59C772 0%, #2982EE 100%)
+
+button.button
+  border-radius: 6px
+
+/* No idea why Ionic 1.3.1 has this issue that causing the back button and text disappear */
+.button-clear.button-clear
+  color: inherit
+
+.item-input.b-b-only
+  border-width: 0 0 1px 0
+
+.tab-nav.tabs
+  background-color: #fff
+  border-top: 1px solid white
+
+.item-avatar.item-tw
+  padding: 12px
+  padding-left: 68px
+  padding-bottom: 0
+  &:first-child
+    border-top: 0
+  img:first-child
+    top: 12px
+    left: 12px
+    border-radius: 4px
+    max-width: 48px
+    max-height: 48px
+  .right-top
+    position: absolute
+    top: 0px
+    right: 0px
+  .media
+    height: 120px
+    width: 100%
+    background-size: cover
+  .item-actions .button
+    min-height: auto
+    line-height: inherit
+  .referencer
+    display: none
+  &.item-tw-re
+    padding-top: 36px
+    img:first-child
+      top: 36px
+    .time-ago
+      top: 36px
+    .referencer
+      display: block
+      position: absolute
+      top: 8px
+      left: 54px
+  & > .icon
+    position: absolute
+    left: 44px
+    top: 12px
+
+.item-tw
+  .media
+    height: 120px
+
+.item-share
+  height: 64px
+  .media-share
+    border-radius: 4px 0 0 4px
+    width: 64px
+    height: 64px
+    background-size: cover
+    float: left
+  .share-title
+    overflow: hidden
+
+.item-trending
+  padding-top: 30px
+  padding-bottom: 30px
+  .pull-left
+    width: 24px
+
+.profile-cover
+  height: 100px
+  border-radius: 4px 4px 0 0
+  background-size: cover
+.profile-img-on-cover
+  margin-top: -40px
+.slider-pager
+  bottom: 2px
+  .slider-pager-page
+    width: 10px
+    .icon
+      font-size: 8px
+
+/* ion-header with input */
+.bar.has-input
+  background-color: white
+.has-input .nav-bar-block
+  display: none
+
+/* Narrow down the item-radio */
+.item-radio 
+  .item-content
+    padding-top: 8px
+    padding-bottom: 8px
+  input:checked + .radio-content
+    font-weight: 700
+    .item-content
+      background-color: transparent
+  .radio-icon
+    padding-top: 4px
+    padding-bottom: 4px
+
+.photo-added
+  position: relative
+  .btn-remove
+    position: absolute
+    top: 8px
+    right: 16px  
+    max-width: 100%
+
+.right-top
+  position: absolute
+  top: 0px
+  right: 0px
+
+.r-none
+  border-radius: 0 !important
+
+/* Override chat.sass */
+.chat-bubble
+  .bubble
+    .content
+      border-radius: 6px
+    img
+      border-radius: 6px

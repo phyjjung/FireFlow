@@ -1,0 +1,19 @@
+<ion-view view-title="Messages">
+  <ion-nav-buttons side="secondary">
+    <button class="button button-clear button-positive" modal="'components/chat/views/start_conversation.modal.html'">
+      New
+    </button>
+  </ion-nav-buttons>
+
+  <ion-content class="stable-bg">
+    <div class="item item-avatar" ng-repeat="i in [0,1,2,3]" ui-sref="tab.conversation">
+      <img alt="" random-avatar>
+
+      <div class="pos-rlt">
+        <div class="font-bold">John Appleseed</div>
+        <p>Hello, today was a good day!</p>
+        <div class="right-top text-xs text-muted">10/05/16</div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

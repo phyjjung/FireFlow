@@ -1,0 +1,73 @@
+<ion-view view-title="Profile">
+  <ion-nav-title>
+    <div>
+      {{profile.DisplayName}}
+    </div>
+  </ion-nav-title>
+  <ion-nav-buttons side="secondary">
+    <button class="button button-clear button-positive button-icon ion-ios-search-strong m-r" ui-sref="tab.search">
+    </button>
+    <new-tweet></new-tweet>
+  </ion-nav-buttons>
+
+  <ion-content class="stable-bg">
+    <div class="profile-cover r-none" ng-style="{'background-image': 'url(\'' + 'https://o.twimg.com/2/proxy.jpg?t=HBhUaHR0cHM6Ly9jbXMtYXNzZXRzLnR1dHNwbHVzLmNvbS91cGxvYWRzL3VzZXJzLzMwL3Bvc3RzLzI2OTc3L3ByZXZpZXdfaW1hZ2UvcHJlLTEucG5nFKAGFKIDHBSEBhSUAwAAFgASAA&s=9dt_Z05iSoJmuasv8rz097REGcvjrZxVIgAd10SYmWQ' + '\')'}"></div>
+
+    <div class="clearfix wrapper-sm bg-white">
+      <img src="" alt="" class="thumb-md r-3x b b-white b-4x pos-abt profile-img-on-cover" random-avatar>
+
+      <div class="clearfix">
+
+        <button class="button button-outline button-stable button-small padder pull-right m-l-sm"><span class="font-bold">Edit profile</span></button>
+        <button class="button button-outline button-stable button-small padder pull-right" action-sheet="[{text: 'Settings'}, {text: 'Turn on night mode'}, {text: 'View lists'}, {text: 'Drafts'}, {text: 'Help'}, {text: 'Sign out'}]"><i class="icon ion-person-stalker"></i></button>
+        <button class="button button-clear button-stable button-small padder pull-right" modal="'components/me/views/settings.modal.html'"><i class="icon ion-gear-a"></i></button>
+      </div>
+
+      <div>
+        <div class="font-bold">{{profile.DisplayName}} <i class="icon ion-checkmark-circled calm"></i></div>
+      </div>
+
+      <div class="m-b">{{profile}}User experience consultant. Information architect. Music lover. Rocket scientist. Not me LoL.</div>
+
+      <div class="text-muted m-b">
+        <span class="m-r">
+          <i class="icon ion-location m-r-sm"></i>Vietnam
+        </span>
+        <span class="m-r">
+          <i class="icon ion-link m-r-sm"></i><a href="">about.me/hieupham</a>
+        </span>
+        <br>
+        <span class="m-r">
+          <i class="icon ion-lightbulb m-r-sm"></i>Born on June 11, 1988</a>
+        </span>
+      </div>
+
+      <div>
+        <span class="font-bold m-r-xs">160</span><span class="text-muted m-r">FOLLOWING</span>
+        <span class="font-bold m-r-xs">116</span><span class="text-muted">FOLLOWERS</span>
+      </div>
+    </div>
+
+    <div class="bar pos-rlt" ng-init="activeBar = 0">
+      <div class="button-bar">
+        <a class="button button-positive" ng-class="{'button-outline': activeBar !== 0}" ng-click="activeBar = 0">Tweets</a>
+        <a class="button button-positive" ng-class="{'button-outline': activeBar !== 1}" ng-click="activeBar = 1">Media</a>
+        <a class="button button-positive" ng-class="{'button-outline': activeBar !== 2}" ng-click="activeBar = 2">Likes</a>
+      </div>
+    </div>
+
+    <div ng-switch="activeBar">
+      <div ng-switch-default class="list">
+        <item-tweet data="p" type="mention" ng-repeat="p in posts track by $index"></item-tweet>
+      </div>
+
+      <div ng-switch-when="1" class="list">
+        <img src="" alt="" class="w-full" random-avatar ng-repeat="i in [0,1,2,3,4,5,6,7]">
+      </div>
+
+      <div ng-switch-when="2" class="list">
+        <item-tweet data="p" type="mention" ng-repeat="p in posts track by $index"></item-tweet>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>
