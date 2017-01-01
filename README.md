@@ -9,15 +9,8 @@ We recommend using the [Ionic CLI](https://github.com/driftyco/ionic-cli) to cre
 
 For example, to start a new Ionic project with the default tabs interface, make sure the `ionic` utility is installed:
 
-```bash
-$ npm install -g ionic
-```
-
-Then run: 
-
-```bash
-$ ionic start myProject tabs
-```
+1. Run $ npm install Notice the console for the errors and try to fulfill
+2. Run $ bower install Notice the console for the errors and try to fulfill
 
 More info on this can be found on the Ionic [Getting Started](http://ionicframework.com/getting-started) page and the [Ionic CLI](https://github.com/driftyco/ionic-cli) repo.
 
