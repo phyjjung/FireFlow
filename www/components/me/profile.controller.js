@@ -3,7 +3,6 @@ angular.module('starter')
   .controller('ProfileCtrl', function($scope,profile, NotificationsService, Auth, $ionicPopup,Users) {
     $scope.Auth = Auth;
     $scope.profile= profile;
-    alert(profile);
     $scope.getData = function() {
       NotificationsService.getAll()
         .then(function(response) {
