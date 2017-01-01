@@ -4,11 +4,6 @@
       {{profile.DisplayName}}
     </div>
   </ion-nav-title>
-  <ion-nav-buttons side="secondary">
-    <button class="button button-clear button-positive button-icon ion-ios-search-strong m-r" ui-sref="tab.search">
-    </button>
-    <new-tweet></new-tweet>
-  </ion-nav-buttons>
 
   <ion-content class="stable-bg">
     <div class="profile-cover r-none" ng-style="{'background-image': 'url(\'' + 'https://o.twimg.com/2/proxy.jpg?t=HBhUaHR0cHM6Ly9jbXMtYXNzZXRzLnR1dHNwbHVzLmNvbS91cGxvYWRzL3VzZXJzLzMwL3Bvc3RzLzI2OTc3L3ByZXZpZXdfaW1hZ2UvcHJlLTEucG5nFKAGFKIDHBSEBhSUAwAAFgASAA&s=9dt_Z05iSoJmuasv8rz097REGcvjrZxVIgAd10SYmWQ' + '\')'}"></div>
@@ -29,21 +24,8 @@
 
       <div class="m-b">{{profile}}User experience consultant. Information architect. Music lover. Rocket scientist. Not me LoL.</div>
 
-      <div class="text-muted m-b">
-        <span class="m-r">
-          <i class="icon ion-location m-r-sm"></i>Vietnam
-        </span>
-        <span class="m-r">
-          <i class="icon ion-link m-r-sm"></i><a href="">about.me/hieupham</a>
-        </span>
-        <br>
-        <span class="m-r">
-          <i class="icon ion-lightbulb m-r-sm"></i>Born on June 11, 1988</a>
-        </span>
-      </div>
-
       <div>
-        <span class="font-bold m-r-xs">160</span><span class="text-muted m-r">FOLLOWING</span>
+        <span class="font-bold m-r-xs">{{profile.FollowingFlow}}</span><span class="text-muted m-r">FOLLOWING</span>
         <span class="font-bold m-r-xs">116</span><span class="text-muted">FOLLOWERS</span>
       </div>
     </div>
