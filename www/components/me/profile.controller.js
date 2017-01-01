@@ -23,10 +23,12 @@ angular.module('starter')
   confirmPopup.then(function(res) {
 
   if(res) {
-    $scope.Auth.$signOut();
+    $scope.Auth.$signOut().then (function (){
+      $state.go('onboarding');
+      console.log('sign out합니다.');
+    });
 
-    $state.go('onboarding');
-    console.log('sign out합니다.');
+
   } else {
 
     console.log('sign out안 합니다.');
