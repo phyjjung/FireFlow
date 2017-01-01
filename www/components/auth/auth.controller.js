@@ -20,7 +20,7 @@ angular.module('starter')
     };
 
     $scope.login = function() {
-    alert($scope.user.email);
+
 
     // Setup the loader
 $ionicLoading.show({
