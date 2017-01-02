@@ -2,7 +2,11 @@ angular.module('starter')
 
   .controller('ProfileCtrl', function($scope,profile, NotificationsService, Auth, $ionicPopup,Users,$state) {
     $scope.Auth = Auth;
-    $scope.profile= profile;
+     $scope.profile= profile;
+    
+
+
+
     $scope.getData = function() {
       NotificationsService.getAll()
         .then(function(response) {

@@ -44,7 +44,7 @@ angular.module('starter', [
 })
 .factory('Auth',
   function($firebaseAuth) {
-    console.log("Auth");
+    console.log("Auth factory");
     var auth =  $firebaseAuth();
     return auth;
   })
@@ -52,9 +52,9 @@ angular.module('starter', [
   .factory('Users', ['$firebaseArray','$firebaseObject',
   function($firebaseArray, $firebaseObject,Auth){
     var usersRef = firebase.database().ref().child("users");
-    
 
-    console.log("users");
+
+    console.log("users factory");
 
     var Users = {
       getProfile: function(uid){

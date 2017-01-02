@@ -18,12 +18,13 @@ navigation history that also transitions its views in and out.
 -->
 
 <ion-tabs class="tabs-icon-top tabs-color-active-positive bar-no-border">
+  <ion-tab title="Flows" icon-off="ion-ios-star-half" icon-on="ion-ios-star-half" href="#/tab/flowlist">
+    <ion-nav-view name="tab-flowlist"></ion-nav-view>
+  </ion-tab>
   <ion-tab title="Home" icon-off="ion-ios-home-outline" icon-on="ion-home" href="#/tab/home">
     <ion-nav-view name="tab-home"></ion-nav-view>
   </ion-tab>
-  <ion-tab title="Flow" icon-off="ion-ios-star-half" icon-on="ion-ios-star-half" href="#/tab/flowlist">
-    <ion-nav-view name="tab-flowlist"></ion-nav-view>
-  </ion-tab>
+
   <ion-tab title="Notifications" icon-off="ion-android-notifications-none" icon-on="ion-android-notifications" href="#/tab/notifications">
     <ion-nav-view name="tab-notifications"></ion-nav-view>
   </ion-tab>

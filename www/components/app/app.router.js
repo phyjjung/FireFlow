@@ -111,6 +111,14 @@ angular.module('starter')
 
     .state('tab.notifications', {
       url: '/notifications',
+      resolve: {
+                authuid: ['Auth', function(Auth) {
+          // $requireSignIn returns a promise so the resolve waits for it to complete
+          // If the promise is rejected, it will throw a $stateChangeError (see above)
+          return Auth.$requireSignIn();
+        }]
+                },
+
       views: {
         'tab-notifications': {
           templateUrl: 'components/notifications/views/notifications.index.html',

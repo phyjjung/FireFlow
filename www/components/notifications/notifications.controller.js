@@ -1,6 +1,7 @@
 angular.module('starter')
 
   .controller('NotificationsCtrl', function($scope, NotificationsService) {
+
     $scope.getData = function() {
       NotificationsService.getAll()
         .then(function(response) {
@@ -14,4 +15,3 @@ angular.module('starter')
     //////////////////
     $scope.getData();
   });
-  
