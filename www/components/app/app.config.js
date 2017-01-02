@@ -52,17 +52,14 @@ angular.module('starter', [
   .factory('Users', ['$firebaseArray','$firebaseObject',
   function($firebaseArray, $firebaseObject,Auth){
     var usersRef = firebase.database().ref().child("users");
-    var users = $firebaseArray(usersRef);
+    
 
     console.log("users");
 
     var Users = {
       getProfile: function(uid){
-        return $firebaseObject(usersRef.child(uid)); },
-      getDisplayName: function (uid) {
-              return users.$getRecord(uid).displayName;
-          },
-      all: users};
+        return $firebaseObject(usersRef.child(uid).child('Profile')); },
+      };
 
     return Users;
   }])
