@@ -17,4 +17,14 @@ angular.module('starter')
     }
 
     return this;
-  });
+  })
+
+  .factory('flowlist', ['$firebaseArray','$firebaseObject',
+  function($firebaseArray, $firebaseObject,Auth){
+    var flowlistRef = firebase.database().ref().child("users").child("FlowList").orderByChild("followers");
+    console.log("FlowList factory");
+
+    var FlowList = $firebaseArray(flowlistRef);
+
+    return FlowList;
+  }])

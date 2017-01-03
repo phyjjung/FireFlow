@@ -3,9 +3,10 @@ angular.module('starter')
   .controller('ProfileCtrl', function($scope,profile, NotificationsService, Auth, $ionicPopup,Users,$state) {
     $scope.Auth = Auth;
      $scope.profile= profile;
-    
 
-
+     angular.forEach($scope.profile, function(value, key) {
+        console.log(key, value);
+     });
 
     $scope.getData = function() {
       NotificationsService.getAll()

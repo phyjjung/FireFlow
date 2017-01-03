@@ -42,18 +42,22 @@ angular.module('starter', [
     .position('bottom')
     .style('standard');
 })
-.factory('Auth',
-  function($firebaseAuth) {
-    console.log("Auth factory");
-    var auth =  $firebaseAuth();
-    return auth;
-  })
+
+
+.factory('flowlist', ['$firebaseArray','$firebaseObject',
+function($firebaseArray, $firebaseObject,Auth){
+  var flowlistRef = firebase.database().ref().child("users").child("FlowList").orderByChild("followers");
+  console.log("FlowList factory");
+
+  var FlowList = $firebaseArray(flowlistRef);
+
+  return FlowList;
+}])
+
 
   .factory('Users', ['$firebaseArray','$firebaseObject',
   function($firebaseArray, $firebaseObject,Auth){
     var usersRef = firebase.database().ref().child("users");
-
-
     console.log("users factory");
 
     var Users = {
@@ -62,5 +66,4 @@ angular.module('starter', [
       };
 
     return Users;
-  }])
-;
+  }]);

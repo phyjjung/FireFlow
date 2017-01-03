@@ -14,10 +14,10 @@
 
         <div class="clear">
           <div class="font-bold">
-           <i class="icon ion-ios-star-half m-b">{{item.Clantitle}}</i>
+           <i class="icon ion-ios-star-half m-b">{{item.$id}}</i>
           </div>
-          <div class="m-b">20자로.. </div>
-          <p><span class="font-bold m-r-xs">{{item.ClanFollowerCount | number}}</span> FOLLOWERS</p>
+          <div class="m-b">{{item.description}}</div>
+          <p><span class="font-bold m-r-xs">{{item.followers | number}}</span> FOLLOWERS</p>
         </div>
       </div>
     </div>

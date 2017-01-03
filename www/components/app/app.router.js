@@ -51,6 +51,11 @@ angular.module('starter')
 
     .state('tab.flowlist', {
       url: '/flowlist',
+      resolve: {
+        flowlist: function(flowlist){
+          return flowlist.$loaded();
+        }
+      },
       views: {
         'tab-flowlist': {
           templateUrl: 'components/flow/views/flowlist.index.html',
