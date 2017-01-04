@@ -21,7 +21,7 @@ angular.module('starter')
 
   .factory('flowlist', ['$firebaseArray','$firebaseObject',
   function($firebaseArray, $firebaseObject,Auth){
-    var flowlistRef = firebase.database().ref().child("users").child("FlowList").orderByChild("followers");
+    var flowlistRef = firebase.database().ref().child("flow").child("flowlist").orderByChild("followers");
     console.log("FlowList factory");
 
     var FlowList = $firebaseArray(flowlistRef);
