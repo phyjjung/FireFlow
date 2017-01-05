@@ -1,6 +1,6 @@
 angular.module('starter')
 
-  .controller('FlowCtrl', function($scope,FlowListService, PostService, $stateParams,flowlist) {
+  .controller('FlowCtrl', function($scope,FlowListService, PostService, $stateParams,flowlist,userflowlist) {
     $scope.flowlist = flowlist;
     console.log($scope.flowlist);
 

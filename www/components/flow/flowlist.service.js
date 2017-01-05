@@ -28,3 +28,12 @@ angular.module('starter')
 
     return FlowList;
   }])
+
+.factory('userflowlist',[
+  function(){
+    console.log('userflowlist');
+    var userflowlist ="1234"
+return userflowlist;
+
+  }
+])
