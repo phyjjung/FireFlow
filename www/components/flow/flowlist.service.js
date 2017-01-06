@@ -29,11 +29,29 @@ angular.module('starter')
     return FlowList;
   }])
 
-.factory('userflowlist',[
-  function(){
+.factory('userflowlist',['$firebaseArray', '$firebaseObject',
+  function($firebaseArray,Auth){
+    const rootRef = firebase.database().ref();
+    const userkey ='NyRMDzW79ncYvIgu5qvyBbzKmv93';
+    const flowlistRef = rootRef.child("flow").child("flowlist");
+    var FlowList = $firebaseArray(flowlistRef);
     console.log('userflowlist');
-    var userflowlist ="1234"
-return userflowlist;
+    //유저의 flowlist를 가지고옴
+   const userflow = rootRef.child("users").child(userkey);
+    //userflow.child('UserFlowList').once ('value',snap =>{console.log(snap.val());console.log (snap.key)});
+
+    // userlist에서 받은걸로 flow셜과 가지고옴.
+    function getFlowListProfileForUser (userkey,cb){
+        userflow.child('UserFlowList').on('child_added', snap =>{
+          let flowlistForUser = flowlistRef.child (snap.key);
+
+          flowlistForUser.once('value',cb);
+        });
+    }
+
+    getFlowListProfileForUser (userkey,snap => console.log (snap.val()));
+
+return FlowList;
 
   }
 ])

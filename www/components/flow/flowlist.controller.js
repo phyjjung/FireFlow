@@ -3,7 +3,8 @@ angular.module('starter')
   .controller('FlowCtrl', function($scope,FlowListService, PostService, $stateParams,flowlist,userflowlist) {
     $scope.flowlist = flowlist;
     console.log($scope.flowlist);
-
+$scope.userflowlist = userflowlist;
+console.log($scope.userflowlist);
     $scope.getData = function() {
       FlowListService.query()
         .then(function(response) {
