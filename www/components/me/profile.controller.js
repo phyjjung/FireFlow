@@ -1,7 +1,7 @@
 angular.module('starter')
 
-  .controller('ProfileCtrl', function($scope,profile, NotificationsService, Auth, $ionicPopup,Users,$state) {
-    $scope.Auth = Auth;
+  .controller('ProfileCtrl', function($scope,profile, NotificationsService, Auth, $ionicPopup,$state) {
+     
      $scope.profile= profile;
 
      angular.forEach($scope.profile, function(value, key) {
