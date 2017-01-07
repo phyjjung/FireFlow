@@ -1,7 +1,12 @@
 angular.module('starter')
 
-  .controller('FlowCtrl', function($scope,FlowListService, $stateParams,userflowlist) {
-    $scope.flowlist2 = userflowlist;
+  .controller('FlowCtrl', function($scope,FlowListService, $stateParams,userflowlist,Auth) {
+$suthuid = Auth.uid;
+console.log(Auth.uid);
+$scope.flowlist2=userflowlist.getflowlist('NyRMDzW79ncYvIgu5qvyBbzKmv93') ;
+
+
+  //  $scope.flowlist2 = userflowlist;
     console.log($scope.flowlist2);
 
     $scope.getData = function() {
