@@ -13,7 +13,8 @@ angular.module('starter', [
   'ion-sticky',
   'monospaced.elastic',
   'ngCordova',
-  'ionic.giphy'
+  'ionic.giphy',
+  'ion-floating-menu'
 ])
 
 .run(function($ionicPlatform) {
