@@ -2,12 +2,12 @@
   <ion-nav-title>
     <h1 class="title positive"><i class="icon ion-ios-star-half text-xl"></i></h1>
   </ion-nav-title>
-  <ion-nav-buttons side="secondary">
-    <button class="button button-clear button-positive button-icon ion-person-add" ui-sref="tab.connect">
-    </button>
-  </ion-nav-buttons>
-  <ion-floating-button bottom="120px" click="myEvent()" has-footer="false" button-color="#2AC9AA" icon="ion-plus" iconColor="#fff">
-</ion-floating-button>
+
+<ion-floating-menu bottom="110px" >
+    <ion-floating-item icon="ion-camera" click="myEvent()"></ion-floating-item>
+    <ion-floating-item icon="ion-person" click="myEvent()"></ion-floating-item>
+</ion-floating-menu>
+
 
   <ion-content class="stable-bg" ion-sticky ion-sticky-class="dark">
     <div class="list">

@@ -1,6 +1,6 @@
 <ion-view view-title="Home">
 
-  
+
   <ion-nav-title>
     <h1 class="title positive"><i class="icon ion-social-twitter text-xl"></i></h1>
   </ion-nav-title>
@@ -14,6 +14,10 @@
     <new-tweet></new-tweet>
   </ion-nav-buttons>
 
+  <ion-floating-menu bottom="110px" >
+      <ion-floating-item icon="ion-camera" click="myEvent()"></ion-floating-item>
+      <ion-floating-item icon="ion-person" click="open_new_tweet()"></ion-floating-item>
+  </ion-floating-menu>
 
 
   <ion-content class="stable-bg" ion-sticky ion-sticky-class="dark">
