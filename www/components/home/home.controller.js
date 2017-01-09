@@ -1,6 +1,6 @@
 angular.module('starter')
 
-  .controller('HomeCtrl', function($scope, $ionicModal, PostService) {
+  .controller('HomeCtrl', function($scope, $ionicModal, PostService, Giphy, PhotoService, LocationService) {
     $scope.getData = function() {
       PostService.getAll()
         .then(function(response) {
