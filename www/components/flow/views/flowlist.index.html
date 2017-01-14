@@ -4,8 +4,8 @@
   </ion-nav-title>
 
 <ion-floating-menu bottom="110px" >
-    <ion-floating-item icon="ion-ios-star-half" click="open_new_flow()"></ion-floating-item>
-    <ion-floating-item icon="ion-search" click="myEvent()"></ion-floating-item>
+    <ion-floating-item icon="ion-ios-star-half" text="New Flow " click="open_new_flow()"></ion-floating-item>
+    <ion-floating-item icon="ion-search" Text ="Search" click="myEvent()"></ion-floating-item>
 </ion-floating-menu>
 
 
@@ -16,7 +16,7 @@
 
         <div class="clear">
           <div class="font-bold">
-           <i class="icon ion-ios-star-half m-b">{{item.$id}}</i>
+           <i class="icon ion-ios-star-half m-b">{{item.title}}</i>
           </div>
           <div class="m-b">{{item.description}}</div>
           <p><span class="font-bold m-r-xs">{{item.followers | number}}</span> FOLLOWERS</p>
