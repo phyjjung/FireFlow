@@ -14,7 +14,9 @@ angular.module('starter', [
   'monospaced.elastic',
   'ngCordova',
   'ionic.giphy',
-  'ion-floating-menu'
+  'ion-floating-menu',
+  'ngMaterial',
+  'ngMessages'
 ])
 
 .run(function($ionicPlatform) {

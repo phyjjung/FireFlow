@@ -1,34 +1,37 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
-    <title>Twitter</title>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+  <title>Twitter</title>
 
 
-    <!-- compiled css output -->
-    <link href="css/ionic.app.css" rel="stylesheet">
-   <!-- floating button-->
-    <link href="lib/ion-floating-menu/dist/ion-floating-menu.css" rel="stylesheet" type="text/css"/>
+  <!-- compiled css output -->
+  <link href="css/ionic.app.css" rel="stylesheet">
+  <!-- floating button-->
+  <link href="lib/ion-floating-menu/dist/ion-floating-menu.css" rel="stylesheet" type="text/css"/>
 
-    <!-- ionic/angularjs js -->
-    <script src="lib/ionic/js/ionic.bundle.js"></script>
-    <script src="lib/moment/min/moment.min.js"></script>
-    <script src="lib/ion-sticky/ion-sticky.js"></script>
-    <script src="lib/angular-elastic/elastic.js"></script>
-    <script src="lib/ngCordova/dist/ng-cordova.js"></script>
-    <script src="lib/angular-gridify/angular-gridify.js"></script>
-    <!-- floating button-->
-    <script src="lib/ion-floating-menu/dist/ion-floating-menu.js" type="text/javascript"></script>
+  <!-- ionic/angularjs js -->
+  <script src="lib/ionic/js/ionic.bundle.js"></script>
+  <script src="lib/moment/min/moment.min.js"></script>
+  <script src="lib/ion-sticky/ion-sticky.js"></script>
+  <script src="lib/angular-elastic/elastic.js"></script>
+  <script src="lib/ngCordova/dist/ng-cordova.js"></script>
+  <script src="lib/angular-gridify/angular-gridify.js"></script>
+  <!-- floating button-->
+  <script src="lib/ion-floating-menu/dist/ion-floating-menu.js" type="text/javascript"></script>
 
-    <!-- cordova script (this will be a 404 during development) -->
-    <script src="cordova.js"></script>
-<!-- Firebase -->
-    <script src="https://www.gstatic.com/firebasejs/3.6.4/firebase.js"></script>
+  <!-- Angular Material style sheet -->
+  <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+
+  <!-- cordova script (this will be a 404 during development) -->
+  <script src="cordova.js"></script>
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/3.6.4/firebase.js"></script>
 
   <!-- AngularFire -->
   <script src="https://cdn.firebase.com/libs/angularfire/2.0.2/angularfire.min.js"></script>
-<script>
+  <script>
   // Initialize Firebase
   var config = {
     apiKey: "AIzaSyAjZMjo-u6vwegYOh5o3dT3t0gXTmDe2xE",
@@ -38,42 +41,51 @@
     messagingSenderId: "626572561725"
   };
   firebase.initializeApp(config);
-</script>
+  </script>
 
-    <!-- your app's js -->
-    <script src="components/app/app.config.js"></script>
-    <script src="components/app/app.router.js"></script>
+  <!-- your app's js -->
+  <script src="components/app/app.config.js"></script>
+  <script src="components/app/app.router.js"></script>
 
-    <!-- inject:js -->
-    <script src="components/auth/auth.controller.js"></script>
-    <script src="components/auth/auth.service.js"></script>
-    <script src="components/chat/chat.controller.js"></script>
-    <script src="components/chat/chat.service.js"></script>
-    <script src="components/chat/chat_detail.controller.js"></script>
-    <script src="components/home/connect.controller.js"></script>
-    <script src="components/home/home.controller.js"></script>
-    <script src="components/home/people.service.js"></script>
-    <script src="components/home/post.service.js"></script>
-    <script src="components/home/search.controller.js"></script>
-    <script src="components/home/search.service.js"></script>
-    <script src="components/me/profile.controller.js"></script>
-    <script src="components/notifications/item_notification.directive.js"></script>
-    <script src="components/notifications/notifications.controller.js"></script>
-    <script src="components/notifications/notifications.service.js"></script>
-    <script src="components/shared/giphy.service.js"></script>
-    <script src="components/shared/item.person.directive.js"></script>
-    <script src="components/shared/item.tweet.directive.js"></script>
-    <script src="components/shared/time_ago.directive.js"></script>
-    <script src="components/shared/twitter.utils.js"></script>
-    <script src="components/tweet/location.service.js"></script>
-    <script src="components/tweet/photo.service.js"></script>
-    <script src="components/tweet/tweet.controller.js"></script>
-    <script src="components/tweet/tweet.directive.js"></script>
-    <script src="components/flow/flowlist.controller.js"></script>
-    <script src="components/flow/flowlist.service.js"></script>
-    <!-- endinject -->
-  </head>
-  <body ng-app="starter">
-    <ui-view></ui-view>
-  </body>
+  <!-- inject:js -->
+  <script src="components/auth/auth.controller.js"></script>
+  <script src="components/auth/auth.service.js"></script>
+  <script src="components/chat/chat.controller.js"></script>
+  <script src="components/chat/chat.service.js"></script>
+  <script src="components/chat/chat_detail.controller.js"></script>
+  <script src="components/home/connect.controller.js"></script>
+  <script src="components/home/home.controller.js"></script>
+  <script src="components/home/people.service.js"></script>
+  <script src="components/home/post.service.js"></script>
+  <script src="components/home/search.controller.js"></script>
+  <script src="components/home/search.service.js"></script>
+  <script src="components/me/profile.controller.js"></script>
+  <script src="components/notifications/item_notification.directive.js"></script>
+  <script src="components/notifications/notifications.controller.js"></script>
+  <script src="components/notifications/notifications.service.js"></script>
+  <script src="components/shared/giphy.service.js"></script>
+  <script src="components/shared/item.person.directive.js"></script>
+  <script src="components/shared/item.tweet.directive.js"></script>
+  <script src="components/shared/time_ago.directive.js"></script>
+  <script src="components/shared/twitter.utils.js"></script>
+  <script src="components/tweet/location.service.js"></script>
+  <script src="components/tweet/photo.service.js"></script>
+  <script src="components/tweet/tweet.controller.js"></script>
+  <script src="components/tweet/tweet.directive.js"></script>
+  <script src="components/flow/flowlist.controller.js"></script>
+  <script src="components/flow/flowlist.service.js"></script>
+  <!-- endinject -->
+</head>
+<body ng-app="starter">
+  <ui-view></ui-view>
+
+  <!-- Angular Material requires Angular.js Libraries -->
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+
+  <!-- Angular Material Library -->
+  <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+</body>
 </html>

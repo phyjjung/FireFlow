@@ -24,11 +24,13 @@ angular.module('starter')
 
 $scope.newflow={};
 
-console.log("outfunciton : " + $scope.newflow);
+
 
   $scope.send = function() {
-    
-    console.log("infunciton : "+ $scope.newflow.title);
+
+console.log("outfunciton : " + $scope.newflow.title);
+
+
     console.log("infunciton : "+ $scope.newflow.description);
     userflowlist.makeNewFlow($authuid,$scope.newflow.title,$scope.newflow.description);
     $scope.newflow ={};
