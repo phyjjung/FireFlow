@@ -23,7 +23,7 @@ angular.module('starter')
   };
 
 
-this.makeNewFlow= function (userid,flowName,descrpition){
+this.makeNewFlow= function (userid,flowName,description){
   var flowData = {
       author: "",
       title: "",
@@ -33,6 +33,7 @@ this.makeNewFlow= function (userid,flowName,descrpition){
 
  flowData.author = userid;
  flowData.title = flowName;
+ flowData.description = description;
 
  console.log("makeNewFlow  :"+flowName);
  const userflow = rootRef.child("users").child(userid).child('UserFlowList');

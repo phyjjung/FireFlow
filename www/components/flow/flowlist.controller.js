@@ -22,14 +22,16 @@ angular.module('starter')
     $scope.modal.hide();
   };
 
+$scope.newflow={};
 
-$scope.newFlowName ="sdf";
-console.log("outfunciton : " + $scope.newFlowName);
+console.log("outfunciton : " + $scope.newflow);
 
   $scope.send = function() {
-    var flowname = $scope.newFlowName;
-    console.log("infunciton : "+ flowname);
-    userflowlist.makeNewFlow($authuid,flowname);
+    
+    console.log("infunciton : "+ $scope.newflow.title);
+    console.log("infunciton : "+ $scope.newflow.description);
+    userflowlist.makeNewFlow($authuid,$scope.newflow.title,$scope.newflow.description);
+    $scope.newflow ={};
     $scope.close();
   }
   ///new_flow Modal modal 마지막

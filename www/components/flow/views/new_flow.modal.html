@@ -13,11 +13,11 @@
 
     <label class="item item-input item-floating-label">
       <span class="input-label">Flow Name</span>
-      <input type="text" ng-model="newFlowName" placeholder="First Name">
+      <input type="text" ng-model="newflow.title" placeholder="First Name">
     </label>
-    <p>flowname : {{newFlowName}}</p>
+
     <div class="wrapper">
-      <textarea class="w-full text-lg" rows="5" placeholder="What's up, Flow?" ng-model="description"></textarea required>
+      <textarea class="w-full text-lg" rows="5" placeholder="Description" ng-model="newflow.description"></textarea required>
     </div>
 
   </ion-content>
