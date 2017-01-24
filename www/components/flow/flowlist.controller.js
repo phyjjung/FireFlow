@@ -16,9 +16,16 @@ angular.module('starter')
     });
 
     $scope.open_new_flow = function() {
+
         $scope.modal.show();
     };
     $scope.close = function() {
+        $scope.newflow.title = "";
+        $scope.newflow.description = "";
+
+        $scope.newflow.formset.$setPristine();
+        $scope.newflow.formset.$setUntouched();
+
         $scope.modal.hide();
     };
 
@@ -39,8 +46,10 @@ angular.module('starter')
             if(!(titlestringlength ==0) && !(descriptionstringlength ==0)){
                 console.log("infunciton : "+ $scope.newflow.description);
                 userflowlist.makeNewFlow($authuid,$scope.newflow.title,$scope.newflow.description);
-                $scope.newflow.title.$setPristine;
-                $scope.newflow.description.$setPristine;
+                $scope.newflow.title="";
+                $scope.newflow.description="";
+                $scope.newflow.formset.$setPristine();
+                $scope.newflow.formset.$setUntouched();
                 $scope.close();
             };
         };

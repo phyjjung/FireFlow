@@ -10,50 +10,43 @@
   </ion-header-bar>
 
   <ion-content  padding="true">
-<div class="padding">
+    <div class="padding">
 
 
       <div class="spacer" style="width: 300px; height: 50px;"></div>
 
 
-
-    <md-input-container class="md-block">
-      <label>Flow Title</label>
-      <input required name="FlowTitle" maxlength="20" md-maxlength="20"  md-no-asterisk="" name="description" ng-model="newflow.title">
-      <div ng-messages="projectForm.description.$error">
-        <div ng-message="required">This is required.</div>
-        <div ng-message="md-maxlength">The Title must be less than 10 characters long.</div>
-      </div>
-    </md-input-container>
-
-
-
-    <md-input-container class="md-block">
-      <label>Description</label>
-      <input maxlength="20" md-maxlength="20" required="" md-no-asterisk="" name="description" ng-model="newflow.description">
-      <div ng-messages="projectForm.description.$error">
-        <div ng-message="md-maxlength">The description must be less than 20 characters long.</div>
-      </div>
-    </md-input-container>
+      <form name="newflow.formset">
+        <md-input-container class="md-block">
+          <label>Flow Title</label>
+          <input required name="FlowTitle" maxlength="20" md-maxlength="20"  md-no-asterisk="" name="title" ng-model="newflow.title">
+          <div ng-messages="projectForm.description.$error">
+            <div ng-message="required">This is required.</div>
+            <div ng-message="md-maxlength">The Title must be less than 10 characters long.</div>
+          </div>
+        </md-input-container>
 
 
-    <form id="cameraTabDefaultPage-form9" class="list">
-      <label class="item item-select" id="cameraTabDefaultPage-select2">
-        <span class="input-label">Follow Flow</span>
-        <select></select>
-      </label>
-    </form>
+        <md-input-container class="md-block">
+          <label>Description</label>
+          <input maxlength="30" md-maxlength="30" required="" md-no-asterisk="" name="description" ng-model="newflow.description">
+          <div ng-messages="projectForm.description.$error">
+            <div ng-message="md-maxlength">The description must be less than 20 characters long.</div>
+          </div>
+        </md-input-container>
 
 
-  <button id="cameraTabDefaultPage-button1" class="button button-positive  button-block" ng-click="send()">Submit</button>
-</div>
-    </ion-content>
 
-    <ion-footer-bar keyboard-attach horizontal layout justified>
+        <label class="item item-select" id="cameraTabDefaultPage-select2">
+          <span class="input-label">Follow FlOW</span>
+          <select></select>
+        </label>
 
-      <div class="text-muted">
-        <div class="ng-binding inline m-t-xs m-r" ng-class="{assertive: tweet.text.length >= 140}">{{ (140 - tweet.text.length) | number:0 }}</div>
-        <button class="button button-positive button-small">Tweet</button>
-      </div>
-    </ion-footer-bar>
-  </ion-modal-view>
+      </form>
+      <div class="spacer" style="width: 300px; height: 20px;"></div>
+
+      <button id="cameraTabDefaultPage-button1" class="button button-positive  button-block" ng-click="send()">Submit</button>
+    </div>
+  </ion-content>
+
+</ion-modal-view>
