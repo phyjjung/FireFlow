@@ -11024,3 +11024,6 @@ button.button {
 
 .chat-bubble .bubble img {
   border-radius: 6px; }
+
+.md-select-menu-container {
+                         pointer-events: auto !important;}
