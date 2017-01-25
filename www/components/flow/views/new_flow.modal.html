@@ -45,25 +45,28 @@
         </label>
 
 
-        //아래의 select의 dropdown을 modal view에서 정상적으로 클릭하기 위해서는  pointer-events: auto를 윈래  none에서 auto로 바꾸
-        //어 주어야 한다. css에서..md-select-menu-container
+        <!--아래의 select의 dropdown을 modal view에서 정상적으로 클릭하기 위해서는  pointer-events: auto를 윈래  none에서 auto로 바꾸
+         어 주어야 한다. css에서..md-select-menu-container!-->
 
-        <md-input-container flex ="100">
-          <label>Topping</label>
-          <md-select ng-model="selectedToppings" multiple>
-            <md-optgroup label="Meats">
-              <md-option >123}</md-option>
-              <md-option >456}</md-option>
-            </md-optgroup>
-          </md-select>
-        </md-input-container>
-
+         <md-input-container flex="50">
+         <label>Favorite Color</label>
+         <md-select name="favoriteColor" ng-model="favoriteColor" ng-if="showthis" multiple>
+           <md-option value="red">Red</md-option>
+           <md-option value="blue">Blue</md-option>
+           <md-option value="green">Green</md-option>
+         </md-select>
+         <div class="errors" ng-messages="myForm.favoriteColor.$error">
+           <div ng-message="required">Required</div>
+         </div>
+       </md-input-container>
 
         <div class="spacer" style="width: 300px; height: 20px;"></div>
 
         <button id="cameraTabDefaultPage-button1" class="button button-positive  button-block" ng-click="send()">Submit</button>
       </div>
     </form>
+
+
   </ion-content>
 
 </ion-modal-view>

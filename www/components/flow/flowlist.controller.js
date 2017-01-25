@@ -1,7 +1,7 @@
 angular.module('starter')
 
 .controller('FlowCtrl', function($scope,$ionicModal,userflowlist,Auth) {
-
+    $scope.showthis = true;
     $authuid = Auth.$getAuth().uid;
     $scope.flowlist=userflowlist.getflowlist($authuid) ;
     //flowlist를 애귤라에 연결
@@ -20,9 +20,14 @@ angular.module('starter')
         $scope.modal.show();
     };
     $scope.close = function() {
+        <!--flow드롭다운을 닫아준다. 드롭다운의 아이디를 받아서 leave로 만든다. 크롬에서 아이디 확인함.-->
+        var superpositionflowdrop = document.getElementById( 'select_container_7' );
+        superpositionflowdrop.classList.remove( 'md-active' );
+        superpositionflowdrop.classList.add( 'md-leave' );
+
         $scope.newflow.title = "";
         $scope.newflow.description = "";
-
+        $scope.showthis = true;
         $scope.newflow.formset.$setPristine();
         $scope.newflow.formset.$setUntouched();
 
