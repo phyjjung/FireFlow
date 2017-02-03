@@ -23,18 +23,21 @@ angular.module('starter')
   };
 
 
-this.makeNewFlow= function (userid,flowName,description){
+this.makeNewFlow= function (userid,flowName,description,subflowNumber,subflows){
   var flowData = {
       author: "",
       title: "",
       followers : 1,
-      description : ""
+      description : "",
+      subflowNumber : 0,
+      subflows : ""
     };
 
  flowData.author = userid;
  flowData.title = flowName;
  flowData.description = description;
-
+ flowData.subflowNumber = subflowNumber;
+ flowData.subflows = subflows;
  console.log("makeNewFlow  :"+flowName);
  const userflow = rootRef.child("users").child(userid).child('UserFlowList');
  //key를 만드는 동시에 받음.. 'true'가 내용이 되면서 들어감.

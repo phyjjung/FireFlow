@@ -16,7 +16,7 @@
       <div class="spacer" style="width: 300px; height: 50px;"></div>
 
 
-      <form name="newflow.formset">
+      <form name="newflow.formset" id="makeFlowForm">
         <md-input-container class="md-block">
           <label>Flow Title</label>
           <input required name="FlowTitle" maxlength="20" md-maxlength="20"  md-no-asterisk="" name="title" ng-model="newflow.title">
@@ -37,36 +37,30 @@
 
 
 
-        <label class="item item-select" id="cameraTabDefaultPage-select2">
-          <span class="input-label">FlOW Superposition</span>
-          <select>
-            <option value="" type="checkbox"> Check all</option>
-          </select>
-        </label>
-
-
         <!--아래의 select의 dropdown을 modal view에서 정상적으로 클릭하기 위해서는  pointer-events: auto를 윈래  none에서 auto로 바꾸
-         어 주어야 한다. css에서..md-select-menu-container!-->
+        어 주어야 한다. css에서..md-select-menu-container!-->
+        <div layout="row" layout-align="start" flex style=" justify-content: space-between;">
+          <md-input-container flex="50">
+            <label>FlOW Superposition</label>
+            <md-select ng-model="data.selectedFlows" ng-if="showthis" multiple>
+              <md-option ng-value="item.title" ng-repeat="item in results track by $index">{{item.title}}</md-option>
+            </md-select>
+          </md-input-container>
+          <md-input-container flex="30" >
+            <md-button   class="md-raised md-warn" ng-click="composeflow()">Select </md-button>
+          </div>
 
-         <md-input-container flex="50">
-         <label>Favorite Color</label>
-         <md-select name="favoriteColor" ng-model="favoriteColor" ng-if="showthis" multiple>
-           <md-option value="red">Red</md-option>
-           <md-option value="blue">Blue</md-option>
-           <md-option value="green">Green</md-option>
-         </md-select>
-         <div class="errors" ng-messages="myForm.favoriteColor.$error">
-           <div ng-message="required">Required</div>
-         </div>
-       </md-input-container>
+        </md-input-container>
 
-        <div class="spacer" style="width: 300px; height: 20px;"></div>
-
-        <button id="cameraTabDefaultPage-button1" class="button button-positive  button-block" ng-click="send()">Submit</button>
       </div>
-    </form>
+
+      <div class="spacer" style="width: 300px; height: 20px;"></div>
+
+      <button id="cameraTabDefaultPage-button1" class="button button-positive  button-block" ng-click="send()">Make Flow</button>
+    </div>
+  </form>
 
 
-  </ion-content>
+</ion-content>
 
 </ion-modal-view>
