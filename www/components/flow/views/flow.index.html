@@ -1,4 +1,4 @@
-<ion-view view-title="Flow">
+<ion-view view-title="{{flowtitle}}">
 
   <ion-nav-buttons side="secondary">
     <button class="button button-clear button-positive button-icon ion-ios-search-strong m-r" ui-sref="tab.search">
@@ -7,9 +7,12 @@
   </ion-nav-buttons>
 
 
-
-  <ion-floating-button >
-  </ion-floating-button>
+  <div class="bar bar-subheader" ng-init="activeBar = 0">
+    <div class="button-bar">
+      <a class="button button-positive" ng-class="{'button-outline': activeBar !== 0}" ng-click="activeBar = 0">All</a>
+      <a class="button button-positive" ng-class="{'button-outline': activeBar !== 1}" ng-click="activeBar = 1">Mentions</a>
+    </div>
+  </div>
 
   <ion-content class="stable-bg has-subheader">
     <div ng-switch="activeBar">

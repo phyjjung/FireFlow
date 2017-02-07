@@ -1,10 +1,11 @@
 angular.module('starter')
 
-.controller('FlowCtrl', function($scope,$ionicModal,userflowlist,Auth) {
+.controller('FlowListCtrl', function($scope,$ionicModal,userflowlist,Auth) {
     $scope.showthis = true;
     $authuid = Auth.$getAuth().uid;
     $scope.flowlist=userflowlist.getflowlist($authuid) ;
     //flowlist를 애귤라에 연결
+    console.log($scope.flowlist);
     $scope.results = $scope.flowlist;
     $scope.data = {};
     $scope.data.selectedFlows ={};
@@ -81,4 +82,70 @@ angular.module('starter')
         };
     };
     ///new_flow Modal modal 마지막
+})
+
+.controller('FlowCtrl', function($scope, $stateParams, $ionicModal, PostService, Giphy, PhotoService, LocationService) {
+
+    $scope.flowtitle = $stateParams.flowName;
+    //console.log($scope.test);
+
+    $scope.getData = function() {
+        PostService.getAll()
+        .then(function(response) {
+            $scope.posts = response;
+
+            // Stop the ion-refresher from spinning
+            $scope.$broadcast('scroll.refreshComplete');
+        })
+    }
+
+    //////////////////
+    $scope.getData();
+
+
+    ///new_tweet modal 시작
+    $ionicModal.fromTemplateUrl('components/tweet/views/new_tweet.modal.html', {
+        scope: $scope,
+        animation: 'slide-in-up'
+    }).then(function(modal) {
+        $scope.modal = modal;
+    });
+
+    $scope.open_new_tweet = function() {
+        $scope.modal.show();
+    };
+    $scope.close = function() {
+        $scope.modal.hide();
+    };
+
+    $scope.addGif = function() {
+        Giphy.openModal()
+        .then(function(imageUrl) {
+            $scope.tweet.imgSrc = imageUrl;
+        })
+    }
+
+    $scope.addPhoto = function() {
+        PhotoService.add()
+        .then(function(imageData) {
+            $scope.tweet.imgSrc = imageData;
+        })
+    }
+
+    $scope.addLocation = function() {
+        LocationService.add()
+        .then(function(location) {
+
+        })
+    }
+
+    $scope.send = function() {
+        $scope.close();
+    }
+    ///new_tweet modal 마지막
+
+
+
+
+
 });

@@ -49,12 +49,23 @@ angular.module('starter')
       }
     })
 
+    .state('tab.flow', {
+      url: '/flow/{flowName}',
+      views: {
+        'tab-flowlist': {
+          templateUrl: 'components/flow/views/flow.index.html',
+          //FlowCtrl은 FlowlistController 파일안에 같이있음.
+          controller: 'FlowCtrl'
+        }
+      }
+    })
+
     .state('tab.flowlist', {
       url: '/flowlist',
       views: {
         'tab-flowlist': {
           templateUrl: 'components/flow/views/flowlist.index.html',
-          controller: 'FlowCtrl'
+          controller: 'FlowListCtrl'
         }
       }
     })

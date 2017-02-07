@@ -6,9 +6,7 @@ angular.module('starter')
   const flowlistRef = rootRef.child("flow").child("flowlist");
   // userlist에서 받은걸로 flow셜과 가지고옴.
   this.getflowlist= function (userid){
-
     const userflow = rootRef.child("users").child(userid);
-
     var flowlist = new Array();
     userflow.child('UserFlowList').on('child_added', snap =>{
       //snap안에 쓰잘데기 없는게 있으면서 그 사이에 key가 있음

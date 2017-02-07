@@ -1,4 +1,4 @@
-<ion-view view-title="Home">
+<ion-view>
   <ion-nav-title>
     <h1 class="title positive"><i class="icon ion-ios-star-half text-xl"></i></h1>
   </ion-nav-title>
@@ -11,7 +11,7 @@
 
   <ion-content class="stable-bg" ion-sticky ion-sticky-class="dark">
     <div class="list">
-      <div class="item item-trending" ng-repeat="item in results track by $index" ui-sref="tab.clan">
+      <div  ui-sref="tab.flow({flowId: item.$id, flowName: item.title})" class="item item-trending" ng-repeat="item in results track by $index" ui-sref="tab.clan">
         <div class="pull-left m-r text-muted">{{$index + 1}}</div>
 
         <div class="clear">
