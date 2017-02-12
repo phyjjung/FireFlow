@@ -3513,7 +3513,23 @@ ion-infinite-scroll {
   top: 0; }
 
 .has-subheader {
-  top: 88px; }
+  top: 88px;
+}
+
+.bar.flowheader {
+    top: 44px;
+    height: 44px;
+}
+
+
+.bar.bar-flowheader {
+    top: 94px;
+    height: 44px;
+}
+
+.has-flowheader {
+    top: 138px;
+  /* 88px 이엇음 */ }
 
 .has-tabs-top {
   top: 93px; }

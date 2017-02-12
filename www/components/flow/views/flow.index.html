@@ -1,20 +1,37 @@
 <ion-view view-title="{{flowtitle}}">
 
+
+  <ion-floating-menu bottom="110px" >
+    <ion-floating-item><new-tweet></new-tweet></ion-floating-item>
+    <ion-floating-item icon="ion-ios-star-half" text="New Flow " click="open_new_flow()"></ion-floating-item>
+    <ion-floating-item icon="ion-search" Text ="Search" click="myEvent()"></ion-floating-item>
+  </ion-floating-menu>
+
   <ion-nav-buttons side="secondary">
     <button class="button button-clear button-positive button-icon ion-ios-search-strong m-r" ui-sref="tab.search">
     </button>
     <new-tweet></new-tweet>
   </ion-nav-buttons>
 
+<div class="stable-bg">
+  <div class="bar flowheader">
+test description
+<button icon="ion-ios-star-half" class="button button-positive">
+  Follow
+</button>
+</div>
+  </div>
 
-  <div class="bar bar-subheader" ng-init="activeBar = 0">
+
+
+  <div class="bar bar-flowheader" ng-init="activeBar = 0">
     <div class="button-bar">
       <a class="button button-positive" ng-class="{'button-outline': activeBar !== 0}" ng-click="activeBar = 0">All</a>
       <a class="button button-positive" ng-class="{'button-outline': activeBar !== 1}" ng-click="activeBar = 1">Mentions</a>
     </div>
   </div>
 
-  <ion-content class="stable-bg has-subheader">
+  <ion-content class="stable-bg has-flowheader ">
     <div ng-switch="activeBar">
       <div ng-switch-default class="list">
         <item-tweet data="p" ng-repeat="p in posts track by $index"></item-tweet>
