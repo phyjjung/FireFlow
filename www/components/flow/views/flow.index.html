@@ -13,12 +13,18 @@
     <new-tweet></new-tweet>
   </ion-nav-buttons>
 
-<div class="stable-bg">
-  <div class="bar flowheader">
-test description
-<button icon="ion-ios-star-half" class="button button-positive">
+<div class="bar flowheader" style="justify-content : space-between;">
+  <div>
+{{flowProfile.description}}
+    </div>
+<div>
+<button  class="button button-positive icon icon-left ion-plus-round">
   Follow
 </button>
+<button  class="button button-stable icon icon-left ion-minus-round">
+  Unfollow
+</button>
+</div>
 </div>
   </div>
 

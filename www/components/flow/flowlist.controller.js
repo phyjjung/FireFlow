@@ -3,6 +3,7 @@ angular.module('starter')
 .controller('FlowListCtrl', function($scope,$ionicModal,userflowlist,Auth) {
     $scope.showthis = true;
     $authuid = Auth.$getAuth().uid;
+    //flowlist를 userlist에서 받아옴
     $scope.flowlist=userflowlist.getflowlist($authuid) ;
     //flowlist를 애귤라에 연결
     console.log($scope.flowlist);
@@ -84,11 +85,16 @@ angular.module('starter')
     ///new_flow Modal modal 마지막
 })
 
-.controller('FlowCtrl', function($scope, $stateParams, $ionicModal, PostService, Giphy, PhotoService, LocationService) {
-
+.controller('FlowCtrl', function($scope, $stateParams, $ionicModal, getflowProfile, PostService, Giphy, PhotoService, LocationService) {
+//flowlisr로부터 넘어온 데이타. html에서 넘어온다.
     $scope.flowtitle = $stateParams.flowName;
-    //console.log($scope.test);
+    $scope.flowId = $stateParams.flowId;
 
+    console.log($scope.flowId);
+
+    $scope.flowProfile = getflowProfile.getflow($scope.flowId);
+    
+    console.log($scope.flowProfile.description);
     $scope.getData = function() {
         PostService.getAll()
         .then(function(response) {

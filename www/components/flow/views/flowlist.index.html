@@ -11,6 +11,7 @@
 
   <ion-content class="stable-bg" ion-sticky ion-sticky-class="dark">
     <div class="list">
+
       <div  ui-sref="tab.flow({flowId: item.$id, flowName: item.title})" class="item item-trending" ng-repeat="item in results track by $index" ui-sref="tab.clan">
         <div class="pull-left m-r text-muted">{{$index + 1}}</div>
 
