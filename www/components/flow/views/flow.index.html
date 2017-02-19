@@ -19,14 +19,20 @@
       {{flowProfile.description}}
 
     </div>
-    <div>
-      <button  class="button button-positive icon icon-left ion-plus-round">
-        Follow
-      </button>
-      <button  class="button button-stable icon icon-left ion-minus-round">
-        Unfollow
-      </button>
+
+    <div ng-switch="IsFollwers">
+      <div ng-switch-when="yesyes">
+        <button  class="button button-positive icon icon-left ion-plus-round">
+          Follow
+        </button>
+      </div>
+      <div ng-switch-default>
+        <button  class="button button-stable icon icon-left ion-minus-round">
+          Unfollow
+        </button>
+      </div>
     </div>
+
   </div>
 </div>
 
