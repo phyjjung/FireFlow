@@ -3,6 +3,7 @@ angular.module('starter')
 .controller('FlowListCtrl', function($scope,$ionicModal,userflowlist,Auth) {
     $scope.showthis = true;
     $authuid = Auth.$getAuth().uid;
+    $scope.authuid = $authuid;
     //flowlist를 userlist에서 받아옴
     $scope.flowlist=userflowlist.getflowlist($authuid) ;
     //flowlist를 애귤라에 연결
@@ -89,12 +90,16 @@ angular.module('starter')
 //flowlisr로부터 넘어온 데이타. html에서 넘어온다.
     $scope.flowtitle = $stateParams.flowName;
     $scope.flowId = $stateParams.flowId;
+    $scope.authid = $stateParams.authuid;
 
-    console.log($scope.flowId);
-
+    console.log("flowid : "+$scope.flowId);
+    console.log("authuid : "+$scope.authid);
     $scope.flowProfile = getflowProfile.getflow($scope.flowId);
-    
-    console.log($scope.flowProfile.description);
+
+
+    getflowProfile.getfollowerforId($scope.flowId,$scope.authid).then(function(data){ $scope.IsFollwers = data;});
+    //console.log("Is Followers? : "+getflowProfile.getfollowerforId($scope.flowId,$scope.authid));
+    console.log("디스클!"+$scope.IsFollwers);
     $scope.getData = function() {
         PostService.getAll()
         .then(function(response) {

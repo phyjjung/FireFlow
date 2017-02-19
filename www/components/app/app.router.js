@@ -50,7 +50,7 @@ angular.module('starter')
     })
 
     .state('tab.flow', {
-      url: '/flow/{flowId}/{flowName}',
+      url: '/flow/{flowId}/{flowName}/{authuid}',
       views: {
         'tab-flowlist': {
           templateUrl: 'components/flow/views/flow.index.html',

@@ -1,16 +1,25 @@
 angular.module('starter')
 
-.service('getflowProfile',['$firebaseArray', '$firebaseObject',function($firebaseArray,$firebaseObject){
+.service('getflowProfile',['$firebaseArray', '$firebaseObject','$q',function($firebaseArray,$firebaseObject,$q){
   const rootRef = firebase.database().ref();
   const flowlistRef = rootRef.child("flow").child("flowlist");
+  const followerslistRef = rootRef.child("flow").child("followers");
 
   this.getflow =function(flowId){
-  let flowProfileRef = flowlistRef.child(flowId);
-  var flowProfile = $firebaseObject(flowProfileRef);
-  return flowProfile;
+    let flowProfileRef = flowlistRef.child(flowId);
+    var flowProfile = $firebaseObject(flowProfileRef);
+    return flowProfile;
   };
-}]
-)
+  //변수 선언을 해야하는데 아직 안함
+  this.getfollowerforId = function (flowId,userid) {
+    var defer = $q.defer();
+    followerslistRef.child(flowId).child(userid).once('value',function(snapshot){
+      var IsUid = snapshot.val();
+      defer.resolve(IsUid);
+    });
+    return defer.promise;
+  };
+}])
 
 .service('userflowlist',['$firebaseArray', '$firebaseObject',function($firebaseArray,$firebaseObject){
 
