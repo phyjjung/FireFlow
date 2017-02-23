@@ -31,8 +31,8 @@ angular.module('starter')
   };
 
   this.unFollowing = function (flowId,userid){
-console.log("UnfollowingSend누름");
-    return followerslistRef.child(flowId).child(flowId).remove();
+    console.log("UnfollowingSend누름");
+    return followerslistRef.child(flowId).child(userid).remove();
   };
 }])
 
