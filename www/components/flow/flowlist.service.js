@@ -22,7 +22,7 @@ angular.module('starter')
   };
 
   this.addFollowing = function (flowId,userid){
-     var updates = {};
+    var updates = {};
     var followingData = {};
     followingData[userid]="yesyes";
     console.log(followingData);
