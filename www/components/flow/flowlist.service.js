@@ -10,14 +10,29 @@ angular.module('starter')
     var flowProfile = $firebaseObject(flowProfileRef);
     return flowProfile;
   };
-  //변수 선언을 해야하는데 아직 안함
+  //팔로윙 여부를 블러옴
   this.getfollowerforId = function (flowId,userid) {
     var defer = $q.defer();
+
     followerslistRef.child(flowId).child(userid).once('value',function(snapshot){
       var IsUid = snapshot.val();
       defer.resolve(IsUid);
     });
     return defer.promise;
+  };
+
+  this.addFollowing = function (flowId,userid){
+     var updates = {};
+    var followingData = {};
+    followingData[userid]="yesyes";
+    console.log(followingData);
+    updates['/flow/followers/'+flowId] = followingData;
+    return rootRef.update(updates);
+  };
+
+  this.unFollowing = function (flowId,userid){
+console.log("UnfollowingSend누름");
+    return followerslistRef.child(flowId).child(flowId).remove();
   };
 }])
 

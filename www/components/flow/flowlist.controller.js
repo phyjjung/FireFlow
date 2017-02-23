@@ -96,10 +96,22 @@ angular.module('starter')
     console.log("authuid : "+$scope.authid);
     $scope.flowProfile = getflowProfile.getflow($scope.flowId);
 
-
+    //현재 팔로우하는지 여부를 읽는곳
     getflowProfile.getfollowerforId($scope.flowId,$scope.authid).then(function(data){ $scope.IsFollwers = data;});
     //console.log("Is Followers? : "+getflowProfile.getfollowerforId($scope.flowId,$scope.authid));
     console.log("디스클!"+$scope.IsFollwers);
+    //팔로윙여부를 변경하는곳
+    $scope.followingSend = function(){
+      console.log("followingSend누름");
+       $scope.IsFollwers = "yesyes";
+       getflowProfile.addFollowing($scope.flowId,$scope.authid);
+    };
+
+    $scope.UnfollowingSend = function(){
+      console.log("unfollow누름");
+       getflowProfile.unFollowing($scope.flowId,$scope.authid);
+    };
+
     $scope.getData = function() {
         PostService.getAll()
         .then(function(response) {
