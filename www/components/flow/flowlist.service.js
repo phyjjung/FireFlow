@@ -83,10 +83,11 @@ angular.module('starter')
     //key를 만드는 동시에 받음.. 'true'가 내용이 되면서 들어감.
     var newPostKey =  userflow.push('true').key;
     var makeFlow = {};
-
+    var followingData = {};
 
     makeFlow['/flow/flowlist/' + newPostKey] = flowData;
-
+    followingData[userid]="yesyes";
+    makeFlow['/flow/followers/'+newPostKey] = followingData;
     firebase.database().ref().update(makeFlow);
 
   }
