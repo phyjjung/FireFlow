@@ -24,14 +24,18 @@ angular.module('starter')
   this.addFollowing = function (flowId,userid){
     var updates = {};
     var followingData = {};
+    var followingDataAtUser ={};
     followingData[userid]="yesyes";
+    followingDataAtUser[flowId]="true";
     console.log(followingData);
     updates['/flow/followers/'+flowId] = followingData;
+    updates['/users/'+userid+'/UserFlowList'] =followingDataAtUser;
     return rootRef.update(updates);
   };
 
   this.unFollowing = function (flowId,userid){
     console.log("UnfollowingSend누름");
+    rootRef.child("users").child(userid).child("UserFlowList").child(flowId).remove();
     return followerslistRef.child(flowId).child(userid).remove();
   };
 }])
