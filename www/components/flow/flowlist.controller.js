@@ -58,10 +58,15 @@ angular.module('starter')
   }
 
   $scope.send = function() {
-    if($scope.newflow.title == undefined || $scope.newflow.description == undefined){
+    if( $scope.newflow.title == undefined || $scope.newflow.description == undefined){
       console.log("undefined");
     }
     else{
+
+      if ($scope.data.selectedFlows.length == 0 || $scope.data.selectedFlows.length == undefined ){
+        $scope.data.selectedFlows =[];
+        console.log("없네 : "+$scope.data.selectedFlows);
+      };
 
       var titlestringlength = $scope.newflow.title.replace(/^\s+|\s+$/gm,'').length;
       var descriptionstringlength = $scope.newflow.description.replace(/^\s+|\s+$/gm,'').length;
@@ -69,7 +74,8 @@ angular.module('starter')
       console.log(titlestringlength);
 
       if(!(titlestringlength ==0) && !(descriptionstringlength ==0)){
-        console.log("infunciton : "+ $scope.newflow.description);
+        console.log("새로 만들기 주제: "+ $scope.newflow.description);
+        console.log("선택 : "+$scope.data.selectedFlows.length);
         userflowlist.makeNewFlow($authuid,$scope.newflow.title,$scope.newflow.description,$scope.data.selectedFlows.length,$scope.data.selectedFlows);
         $scope.newflow.title="";
         $scope.newflow.description="";
@@ -77,7 +83,7 @@ angular.module('starter')
         $scope.newflow.formset.$setPristine();
         $scope.newflow.formset.$setUntouched();
         document.getElementById("makeFlowForm").reset();
-        console.log($scope.data.selectedFlows);
+
         $scope.data.selectedFlows =[];
         $scope.close();
       };
