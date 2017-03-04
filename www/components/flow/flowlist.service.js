@@ -22,6 +22,16 @@ angular.module('starter')
   };
 
   this.addFollowing = function (flowId,userid){
+    var userFollowNumRef = rootRef.child("users").child(userid).child("Profile").child("FollowingFlow");
+    userFollowNumRef.transaction(function(currentFollower){
+      return currentFollower+1;
+    });
+
+    var flowFollowNumRef = flowlistRef.child(flowId).child("followers");
+    flowFollowNumRef.transaction(function(flowfollowers){
+      return flowfollowers+1;
+    });
+
     var updates = {};
     updates['/flow/followers/'+flowId+'/'+userid] = "yesyes";
     updates['/users/'+userid+'/UserFlowList/'+flowId]="true";
@@ -29,6 +39,16 @@ angular.module('starter')
   };
 
   this.unFollowing = function (flowId,userid){
+    var userFollowNumRef = rootRef.child("users").child(userid).child("Profile").child("FollowingFlow");
+    userFollowNumRef.transaction(function(currentFollower){
+      return currentFollower-1;
+    });
+
+    var flowFollowNumRef = flowlistRef.child(flowId).child("followers");
+    flowFollowNumRef.transaction(function(flowfollowers){
+      return flowfollowers-1;
+    });
+
     console.log("UnfollowingSend누름");
     rootRef.child("users").child(userid).child("UserFlowList").child(flowId).remove();
     return followerslistRef.child(flowId).child(userid).remove();
@@ -91,6 +111,11 @@ angular.module('starter')
     followingData[userid]="yesyes";
     makeFlow['/flow/followers/'+newPostKey] = followingData;
     firebase.database().ref().update(makeFlow);
+
+    var userFollowNumRef = rootRef.child("users").child(userid).child("Profile").child("FollowingFlow");
+    userFollowNumRef.transaction(function(currentFollower){
+      return currentFollower+1;
+    });
 
   }
 
