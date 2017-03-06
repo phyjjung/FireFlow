@@ -92,7 +92,7 @@ angular.module('starter')
   ///new_flow Modal modal 마지막
 })
 
-.controller('FlowCtrl', function($scope, $stateParams, $ionicModal, getflowProfile, PostService, Giphy, PhotoService, LocationService) {
+.controller('FlowCtrl', function($scope, $stateParams, $ionicModal, getflowProfile, FlowPostService, Giphy, PhotoService, LocationService) {
   //flowlisr로부터 넘어온 데이타. html에서 넘어온다.
   $scope.flowtitle = $stateParams.flowName;
   $scope.flowId = $stateParams.flowId;
@@ -124,18 +124,18 @@ angular.module('starter')
       });
     };
 
-    $scope.getData = function() {
-      PostService.getAll()
-      .then(function(response) {
-        $scope.posts = response;
-        console.log("플로우리스트 내부의 FlowCtrl내에 get data");
-        // Stop the ion-refresher from spinning
-        $scope.$broadcast('scroll.refreshComplete');
-      })
-    }
-
+    //$scope.getData = function() {
+    //  FlowPostService.getAll()
+    //  .then(function(response) {
+    //    $scope.posts = response;
+    //    console.log("플로우리스트 내부의 FlowCtrl내에 get data"+response );
+    //    // Stop the ion-refresher from spinning
+    //    $scope.$broadcast('scroll.refreshComplete');
+    //  })
+    // }
+$scope.posts = FlowPostService.getAll();
     //////////////////
-    $scope.getData();
+    //$scope.getData();
 
 
 

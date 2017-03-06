@@ -40,7 +40,7 @@ angular.module('starter')
       // 4: article
 
       var data = [];
-      for (var i = 0; i < 24; i++) {
+      for (var i = 0; i < 10; i++) {
         console.log("홈 내부의 post.service입니다.");
         data.push(angular.extend({
           type: getRandomValue(4),
@@ -48,7 +48,7 @@ angular.module('starter')
         }, item));
       }
 
-
+      console.log("Flow list"+data);
       return $q.resolve(data);
     }
 

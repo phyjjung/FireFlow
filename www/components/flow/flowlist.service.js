@@ -1,6 +1,7 @@
 angular.module('starter')
 
-.service('getflowProfile',['$firebaseArray', '$firebaseObject','$q',function($firebaseArray,$firebaseObject,$q){
+.service('getflowProfile',['$firebaseArray', '$firebaseObject','$q',
+function($firebaseArray,$firebaseObject,$q){
   const rootRef = firebase.database().ref();
   const flowlistRef = rootRef.child("flow").child("flowlist");
   const followerslistRef = rootRef.child("flow").child("followers");
