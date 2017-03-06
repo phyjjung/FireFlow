@@ -9,7 +9,7 @@ angular.module('starter')
           urls: [
             {
               url: 'http://holykaw.alltop.com/whats-going-happen-humans-future?gk1'
-            }    
+            }
           ],
           media: [
             {
@@ -41,6 +41,7 @@ angular.module('starter')
 
       var data = [];
       for (var i = 0; i < 24; i++) {
+        console.log("홈 내부의 post.service입니다.");
         data.push(angular.extend({
           type: getRandomValue(4),
           isReference: getRandomValue(1)
@@ -57,4 +58,3 @@ angular.module('starter')
 
     return this;
   });
-  

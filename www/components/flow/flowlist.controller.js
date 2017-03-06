@@ -7,7 +7,7 @@ angular.module('starter')
   //flowlist를 userlist에서 받아옴
   $scope.flowlist=userflowlist.getflowlist($authuid) ;
   //flowlist를 애귤라에 연결
-  console.log($scope.flowlist);
+  console.log("플로우리스트"+$scope.flowlist);
   $scope.results = $scope.flowlist;
   $scope.data = {};
   $scope.data.selectedFlows ={};
@@ -128,7 +128,7 @@ angular.module('starter')
       PostService.getAll()
       .then(function(response) {
         $scope.posts = response;
-
+        console.log("플로우리스트 내부의 FlowCtrl내에 get data");
         // Stop the ion-refresher from spinning
         $scope.$broadcast('scroll.refreshComplete');
       })
@@ -137,47 +137,6 @@ angular.module('starter')
     //////////////////
     $scope.getData();
 
-
-    ///new_tweet modal 시작
-    $ionicModal.fromTemplateUrl('components/tweet/views/new_tweet.modal.html', {
-      scope: $scope,
-      animation: 'slide-in-up'
-    }).then(function(modal) {
-      $scope.modal = modal;
-    });
-
-    $scope.open_new_tweet = function() {
-      $scope.modal.show();
-    };
-    $scope.close = function() {
-      $scope.modal.hide();
-    };
-
-    $scope.addGif = function() {
-      Giphy.openModal()
-      .then(function(imageUrl) {
-        $scope.tweet.imgSrc = imageUrl;
-      })
-    }
-
-    $scope.addPhoto = function() {
-      PhotoService.add()
-      .then(function(imageData) {
-        $scope.tweet.imgSrc = imageData;
-      })
-    }
-
-    $scope.addLocation = function() {
-      LocationService.add()
-      .then(function(location) {
-
-      })
-    }
-
-    $scope.send = function() {
-      $scope.close();
-    }
-    ///new_tweet modal 마지막
 
 
 

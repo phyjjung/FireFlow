@@ -21,6 +21,7 @@
           </div>
           <div class="m-b">{{item.description}}</div>
           <p><span class="font-bold m-r-xs">{{item.followers | number}}</span> FOLLOWERS</p>
+          <span class="text-muted">{{item.createdAt | date:'dd MMM yyyy H:mm' | lowercase }}</span>
         </div>
       </div>
     </div>

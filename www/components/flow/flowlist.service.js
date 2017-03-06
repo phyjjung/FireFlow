@@ -92,7 +92,8 @@ angular.module('starter')
       followers : 1,
       description : "",
       subflowNumber : 0,
-      subflows : ""
+      subflows : "",
+      createdAt: firebase.database.ServerValue.TIMESTAMP
     };
 
     flowData.author = userid;
@@ -124,14 +125,3 @@ angular.module('starter')
 
 }
 ])
-
-//  .factory('flowlist', ['$firebaseArray','$firebaseObject',
-
-//  function($firebaseArray, $firebaseObject,Auth){
-//    var flowlistRef = firebase.database().ref().child("flow").child("flowlist").orderByChild("followers");
-//    console.log("FlowList factory");
-
-//    var FlowList = $firebaseArray(flowlistRef);
-
-//    return FlowList;
-//  }])
