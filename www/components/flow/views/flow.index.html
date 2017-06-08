@@ -38,8 +38,12 @@
 
 <div class="bar bar-flowheader" ng-init="activeBar = 0">
   <div class="button-bar">
-    <a class="button button-positive" ng-class="{'button-outline': activeBar !== 0}" ng-click="activeBar = 0">All</a>
-    <a class="button button-positive" ng-class="{'button-outline': activeBar !== 1}" ng-click="activeBar = 1">Mentions</a>
+    <!--  Flow Post는 현 Flow내부의 글-->
+    <a class="button button-positive" ng-class="{'button-outline': activeBar !== 0}" ng-click="activeBar = 0">Flow Post</a>
+    <!--  Follower는 이 Flow를 따르는 FLow-->
+    <a class="button button-positive" ng-class="{'button-outline': activeBar !== 1}" ng-click="activeBar = 1">Follower</a>
+    <!--  Following 이 Flow가 따르는 FLow-->
+    <a class="button button-positive" ng-class="{'button-outline': activeBar !== 1}" ng-click="activeBar = 2">Following</a>
   </div>
 </div>
 
