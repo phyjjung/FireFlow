@@ -1,0 +1,39 @@
+<ion-modal-view>
+  <ion-header-bar class="bar bar-header bar-no-border">
+    <div class="buttons">
+      <button class="button button-clear button-positive" ng-click="closeLogin()">
+        Cancel
+      </button>
+    </div>
+    <h1 class="title positive"><i class="icon ion-social-twitter text-xl"></i></h1>
+    <div class="buttons">
+      <button class="button button-clear button-positive">
+        <i class="icon ion-android-more-horizontal"></i>
+      </button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    <div class="wrapper-sm m-t-lg m-b text-xl font-thin">
+      Sign up to fireFlow
+    </div>
+
+    <div class="list">
+      <label class="item item-input b-b-only m-n">
+        <input type="email" class="positive" placeholder="Phone, email or username" ng-model="user.email">
+      </label>
+      <label class="item item-input b-b-only m-n">
+        <input type="password" placeholder="Password" ng-model="user.password">
+      </label>
+      <label class="item item-input b-b-only m-n">
+        <input type="password" placeholder="Password(repeat)" ng-model="user.repeat_password">
+      </label>
+
+    </div>
+  </ion-content>
+
+  <ion-footer-bar keyboard-attach horizontal layout justified>
+    <button class="button button-clear button-positive">Forgot password?</button>
+    <button class="button button-positive button-small" ng-click="signup()">Sign up</button>
+
+  </ion-footer-bar>
+</ion-modal-view>
