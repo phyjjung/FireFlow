@@ -6,12 +6,14 @@ angular.module('starter')
   $scope.authuid = $authuid;
   //flowlist를 userlist에서 받아옴
   $scope.flowlist=userflowlist.getflowlist($authuid) ;
-  //flowlist를 애귤라에 연결
+  //flowlist를 앵귤라에 연결
   console.log("플로우리스트"+$scope.flowlist);
+  //여기서 results는 기존 사용자가 folloing하는 list이다.
   $scope.results = $scope.flowlist;
   $scope.data = {};
   $scope.data.selectedFlows ={};
   ///new_flow modal 시작
+  //새로운 Flow를 만드는 곳.
   $ionicModal.fromTemplateUrl('components/flow/views/new_flow.modal.html', {
     scope: $scope,
     animation: 'slide-in-up'
@@ -28,7 +30,7 @@ angular.module('starter')
     var superpositionflowdrop = document.getElementById( 'select_container_4' );
     superpositionflowdrop.classList.remove( 'md-active' );
     superpositionflowdrop.classList.add( 'md-leave' );
-
+    // newFlow내의 변수 초기화
     $scope.newflow.title = "";
     $scope.newflow.description = "";
     $scope.showthis = true;
@@ -44,6 +46,7 @@ angular.module('starter')
 
   $scope.composeflow = function(){
     var superpositionflowdrop = document.getElementById( 'select_container_4' );
+    <!--md-selector를 classlist를 이용하여 숨기고 안보이게 함.   -->
     superpositionflowdrop.classList.remove( 'md-active' );
     superpositionflowdrop.classList.remove( 'md-clickable' );
     superpositionflowdrop.style.display="none";
@@ -65,7 +68,7 @@ angular.module('starter')
 
       if ($scope.data.selectedFlows.length == 0 || $scope.data.selectedFlows.length == undefined ){
         $scope.data.selectedFlows =[];
-        console.log("없네 : "+$scope.data.selectedFlows);
+        console.log("selectedFlows 없네 : "+$scope.data.selectedFlows);
       };
 
       var titlestringlength = $scope.newflow.title.replace(/^\s+|\s+$/gm,'').length;
@@ -105,7 +108,7 @@ angular.module('starter')
   //현재 팔로우하는지 여부를 읽는곳
   getflowProfile.getfollowerforId($scope.flowId,$scope.authid).then(function(data){ $scope.IsFollwers = data;});
   //console.log("Is Followers? : "+getflowProfile.getfollowerforId($scope.flowId,$scope.authid));
-  console.log("디스클!"+$scope.IsFollwers);
+
   //팔로윙여부를 변경하는곳
 
   $scope.followingSend = function(){
@@ -134,7 +137,7 @@ angular.module('starter')
     //  })
     // }
 $scope.posts = FlowPostService.getAll();
-    //////////////////
+    //
     //$scope.getData();
 
 
