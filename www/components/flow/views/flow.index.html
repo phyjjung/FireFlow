@@ -52,8 +52,12 @@
     <div ng-switch-default class="list">
       <item-tweet data="p" ng-repeat="p in posts track by $index"></item-tweet>
     </div>
-
+<!--    아래 만들어야 함 -->
     <div ng-switch-when="1" class="list">
+      <item-tweet data="p" type="mention" ng-repeat="p in posts track by $index"></item-tweet>
+    </div>
+<!--    아래 만들어야 함 -->
+    <div ng-switch-when="2" class="list">
       <item-tweet data="p" type="mention" ng-repeat="p in posts track by $index"></item-tweet>
     </div>
   </div>
