@@ -1,7 +1,7 @@
 angular.module('starter')
 
   .controller('ProfileCtrl', function($scope,profile, NotificationsService, Auth, $ionicPopup,$state) {
-     
+
      $scope.profile= profile;
 
      angular.forEach($scope.profile, function(value, key) {
@@ -28,7 +28,7 @@ angular.module('starter')
   confirmPopup.then(function(res) {
 
   if(res) {
-    $scope.Auth.$signOut().then (function (){
+    Auth.$signOut().then (function (){
       $state.go('onboarding');
       console.log('sign out합니다.');
     });
