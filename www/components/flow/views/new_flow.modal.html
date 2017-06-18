@@ -10,7 +10,7 @@
   </ion-header-bar>
 
   <ion-content  padding="true">
-    <div class="padding">
+    <form class="padding">
 
 
       <div class="spacer" style="width: 300px; height: 50px;"></div>
@@ -26,7 +26,6 @@
           </div>
         </md-input-container>
 
-
         <md-input-container class="md-block">
           <label>Description</label>
           <input maxlength="30" md-maxlength="30" required="" md-no-asterisk="" name="description" ng-model="newflow.description">
@@ -34,8 +33,6 @@
             <div ng-message="md-maxlength">The description must be less than 20 characters long.</div>
           </div>
         </md-input-container>
-
-
 
         <!--아래의 select의 dropdown을 modal view에서 정상적으로 클릭하기 위해서는  pointer-events: auto를 윈래  none에서 auto로 바꾸
         어 주어야 한다. css에서..md-select-menu-container!-->
@@ -48,11 +45,9 @@
           </md-input-container>
           <md-input-container flex="30" >
             <md-button   class="md-raised md-warn" ng-click="composeflow()">Select</md-button>
+          </md-input-container>
           </div>
-
-        </md-input-container>
-
-      </div>
+      </form>
 
       <div class="spacer" style="width: 300px; height: 20px;"></div>
 

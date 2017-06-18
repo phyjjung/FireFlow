@@ -1,0 +1,48 @@
+<ion-modal-view>
+  <ion-header-bar class="bar bar-header bar-no-border">
+
+    <h1 class="title positive">New Post</h1>
+    <div class="buttons">
+      <button class="button button-clear button-positive" ng-click="close_new_post()">
+        <i class="icon ion-android-close"></i>
+      </button>
+    </div>
+  </ion-header-bar>
+
+  <ion-content  padding="true">
+    <form class="padding">
+
+
+      <div class="spacer" style="width: 300px; height: 50px;"></div>
+
+
+      <form name="newpost.formset" id="makePostForm">
+        <md-input-container class="md-block">
+          <label>Post Title</label>
+          <input required name="PostTitle" maxlength="20" md-maxlength="20"  md-no-asterisk="" name="title" ng-model="newpost.title">
+          <div ng-messages="projectForm.description.$error">
+            <div ng-message="required">This is required.</div>
+            <div ng-message="md-maxlength">The Title must be less than 20 characters long.</div>
+          </div>
+        </md-input-container>
+
+
+        <md-input-container class="md-block">
+          <label>Content</label>
+          <input required maxlength="160" md-maxlength="160" required="" md-no-asterisk="" name="description" ng-model="newpost.content">
+          <div ng-messages="projectForm.description.$error">
+            <div ng-message="md-maxlength">The description must be less than 160 characters long.</div>
+          </div>
+        </md-input-container>
+    </form>
+
+    <div class="spacer" style="width: 300px; height: 20px;"></div>
+
+    <button id="cameraTabDefaultPage-button1" class="button button-positive  button-block" ng-click="send()">Post</button>
+    </div>
+    </form>
+
+
+  </ion-content>
+
+</ion-modal-view>

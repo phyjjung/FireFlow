@@ -121,7 +121,6 @@ function($firebaseArray,$firebaseObject,$q){
 
   }
 
-
   return this;
 
 }
