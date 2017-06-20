@@ -72,16 +72,14 @@ function($firebaseArray,$firebaseObject,$q){
       // 그 key 위치를 이용하여 받아옴.
       //유저의 flowlist를 가지고옴
       var FlowListtest = $firebaseObject(flowlistForUser);
-      console.log("야호");
       flowlist.push(FlowListtest);
+      
     });
 
     userflow.child ('UserFlowList').on('child_removed', snap=>{
-      console.log("삭제전 flowlist : " +flowlist);
-      console.log("에이"+snap.key);
       flowlist.splice(flowlist.indexOf(snap.key),1);
-      console.log("삭제후 flowlist : " +flowlist);
     });
+
     return flowlist;
   };
 

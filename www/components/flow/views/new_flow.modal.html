@@ -41,9 +41,9 @@
         어 주어야 한다. css에서..md-select-menu-container!-->
         <div layout="row" layout-align="start" flex style=" justify-content: space-between;">
           <md-input-container flex="50">
-            <label>FlOW Superposition</label>
+            <label>Following Flow</label>
             <md-select ng-model="data.selectedFlows" ng-if="showthis" multiple>
-              <md-option ng-value="item.title" ng-repeat="item in results track by $index">{{item.title}}</md-option>
+              <md-option ng-value="item.$id" ng-repeat="item in results track by $index">{{item.title}}</md-option>
             </md-select>
           </md-input-container>
           <md-input-container flex="30" >

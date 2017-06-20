@@ -7,9 +7,12 @@ angular.module('starter')
   //flowlist를 userlist에서 받아옴
   $scope.flowlist=userflowlist.getflowlist($authuid) ;
   //flowlist를 앵귤라에 연결
-  console.log("플로우리스트"+$scope.flowlist);
+
+
   //여기서 results는 기존 사용자가 folloing하는 list이다.
   $scope.results = $scope.flowlist;
+  console.log("results :  ");
+  console.log($scope.results);
   $scope.data = {};
   $scope.data.selectedFlows ={};
   ///new_flow modal 시작
@@ -36,7 +39,7 @@ angular.module('starter')
     $scope.showthis = true;
     $scope.newflow.formset.$setPristine();
     $scope.newflow.formset.$setUntouched();
-    console.log($scope.data.selectedFlows);
+    // console.log($scope.data.selectedFlows);
     $scope.data.selectedFlows =[];
     document.getElementById("makeFlowForm").reset();
     $scope.modal.hide();
@@ -52,9 +55,9 @@ angular.module('starter')
     superpositionflowdrop.style.display="none";
     superpositionflowdrop.setAttribute("aria-hidden", true);
     superpositionflowdrop.classList.add( 'md-leave' );
-    console.log($scope.data.selectedFlows);
+    console.log("select된 flow  : "+$scope.data.selectedFlows);
 
-    console.log($scope.data.selectedFlows.length);
+    //console.log($scope.data.selectedFlows.length);
     var jasonend = JSON.stringify($scope.data.selectedFlows);
     console.log(jasonend);
 
