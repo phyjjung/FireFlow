@@ -1,8 +1,11 @@
 angular.module('starter')
 
 .controller('FlowListCtrl', function($scope,$ionicModal,userflowlist,Auth) {
+  console.log("FlowListCtrl 컨트롤러 시작");
   $scope.showthis = true;
+
   $authuid = Auth.$getAuth().uid;
+<<<<<<< HEAD
   $scope.authuid = $authuid;
   //flowlist를 userlist에서 받아옴
   $scope.flowlist=userflowlist.getflowlist($authuid) ;
@@ -15,6 +18,20 @@ angular.module('starter')
   console.log($scope.results);
   $scope.data = {};
   $scope.data.selectedFlows ={};
+=======
+
+
+    $scope.authuid = $authuid;
+    //flowlist를 userlist에서 받아옴
+    $scope.flowlist = userflowlist.getflowlist($authuid);
+    //flowlist를 앵귤라에 연결
+    console.log("플로우리스트" + $scope.flowlist);
+    //여기서 results는 기존 사용자가 folloing하는 list이다.
+    $scope.results = $scope.flowlist;
+    $scope.data = {};
+    $scope.data.selectedFlows = {};
+
+>>>>>>> origin/master
   ///new_flow modal 시작
   //새로운 Flow를 만드는 곳.
   $ionicModal.fromTemplateUrl('components/flow/views/new_flow.modal.html', {
@@ -48,6 +65,7 @@ angular.module('starter')
   $scope.newflow={};
 
   $scope.composeflow = function(){
+    console.log("composeflow 시작");
     var superpositionflowdrop = document.getElementById( 'select_container_4' );
     <!--md-selector를 classlist를 이용하여 숨기고 안보이게 함.   -->
     superpositionflowdrop.classList.remove( 'md-active' );
@@ -64,6 +82,7 @@ angular.module('starter')
   }
 
   $scope.send = function() {
+
     if( $scope.newflow.title == undefined || $scope.newflow.description == undefined){
       console.log("undefined");
     }
@@ -96,10 +115,15 @@ angular.module('starter')
     };
   };
   ///new_flow Modal modal 마지막
+
+
 })
 
 .controller('FlowCtrl', function($scope, $stateParams, $ionicModal, getflowProfile, FlowPostService, Giphy, PhotoService, LocationService) {
-  //flowlisr로부터 넘어온 데이타. html에서 넘어온다.
+  console.log("flowctrl 컨트롤러 시작");
+
+  $scope.newpost={};
+  //flowlist로부터 넘어온 데이타. html에서 넘어온다.
   $scope.flowtitle = $stateParams.flowName;
   $scope.flowId = $stateParams.flowId;
   $scope.authid = $stateParams.authuid;
@@ -139,13 +163,62 @@ angular.module('starter')
     //    $scope.$broadcast('scroll.refreshComplete');
     //  })
     // }
-$scope.posts = FlowPostService.getAll();
+  $scope.posts = FlowPostService.getAll($scope.flowId);
     //
     //$scope.getData();
 
+  $scope.close_new_post = function() {
+    <!--flow드롭다운을 닫아준다. 드롭다운의 아이디를 받아서 leave로 만든다. 크롬에서 아이디 확인함.-->
+    // newFlow내의 변수 초기화
+    // $scope.newflow.title = "";
+    // $scope.newflow.description = "";
+    // $scope.showthis = true;
+    // $scope.newflow.formset.$setPristine();
+    // $scope.newflow.formset.$setUntouched();
+    // console.log($scope.data.selectedFlows);
+    // $scope.data.selectedFlows =[];
+    //document.getElementById("makePostForm").reset();
+    $scope.new_post_modal.hide();
 
+  };
 
-
-
-
+  $ionicModal.fromTemplateUrl('components/flow/views/new_flow.modal.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function (modal) {
+    $scope.new_flow_modal = modal;
   });
+
+  $ionicModal.fromTemplateUrl('components/flow/views/new_post.modal.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function (modal) {
+    $scope.new_post_modal = modal;
+  });
+
+  $scope.open_new_post = function () {
+    console.log("new post");
+    console.log($scope.new_post_modal);
+    $scope.new_post_modal.show();
+  };
+
+  $scope.send = function() {
+    if( $scope.newpost.title == undefined || $scope.newpost.content == undefined){
+      console.log("undefined");
+      return;
+    }
+    console.log("newpost.content="+$scope.newpost.title);
+    console.log("newpost.content="+$scope.newpost.content);
+    $scope.close_new_post();
+
+    FlowPostService.makeNewPost($scope.authid,$scope.newpost.title,$scope.newpost.content,$scope.flowId);
+
+
+    // 에러 처리 추가해야됨
+
+
+  }
+});
+
+
+
