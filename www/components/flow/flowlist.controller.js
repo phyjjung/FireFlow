@@ -5,21 +5,6 @@ angular.module('starter')
   $scope.showthis = true;
 
   $authuid = Auth.$getAuth().uid;
-<<<<<<< HEAD
-  $scope.authuid = $authuid;
-  //flowlist를 userlist에서 받아옴
-  $scope.flowlist=userflowlist.getflowlist($authuid) ;
-  //flowlist를 앵귤라에 연결
-
-
-  //여기서 results는 기존 사용자가 folloing하는 list이다.
-  $scope.results = $scope.flowlist;
-  console.log("results :  ");
-  console.log($scope.results);
-  $scope.data = {};
-  $scope.data.selectedFlows ={};
-=======
-
 
     $scope.authuid = $authuid;
     //flowlist를 userlist에서 받아옴
@@ -31,7 +16,6 @@ angular.module('starter')
     $scope.data = {};
     $scope.data.selectedFlows = {};
 
->>>>>>> origin/master
   ///new_flow modal 시작
   //새로운 Flow를 만드는 곳.
   $ionicModal.fromTemplateUrl('components/flow/views/new_flow.modal.html', {
